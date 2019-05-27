@@ -1,7 +1,0 @@
-<?php 
-$iHostName='localhost'; 
-$iUserName='root'; 
-$iPassword=''; 
-$iDb='rssm_online'; 
-$iPort='3306'; 
-?>
