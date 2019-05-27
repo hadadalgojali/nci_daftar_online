@@ -1,0 +1,163 @@
+.i-add-large {
+   background-image: url(./icon/add.png) !important;
+   background-size: auto 100% ;
+}
+.i-refresh-large {
+   background-image: url(./icon/gtk-refresh.png) !important;
+   background-size: auto 100% ;
+}
+.i-export-pdf {
+   background-image: url(./icon/pdf_icon.png) !important;
+   background-size: auto 100% ;
+}
+.i-search-large {
+   background-image: url(./icon/Search-icon.png) !important;
+   background-size: auto 100% ;
+}
+.i-register-large {
+   background-image: url(./icon/sign-up-icon.png) !important;
+   background-size: auto 100% ;
+}
+.i-status-large {
+   background-image: url(./icon/gnome-status.png) !important;
+   background-size: auto 100% ;
+}
+.i-excel-large {
+   background-image: url(./icon/excel-2010-icon.png) !important;
+   background-size: auto 100% ;
+}
+.i-self-large {
+   background-image: url(./icon/i2-customer-self-services.png) !important;
+   background-size: auto 100% ;
+}
+.i-absent-large {
+   background-image: url(./icon/absent.png) !important;
+   background-size: auto 100% ;
+}
+.i-back-large {
+   background-image: url(./icon/previous-512.png) !important;
+   background-size: auto 100% ;
+}
+.i-profile-large {
+   background-image: url(./icon/profile.png) !important;
+   background-size: auto 100% ;
+}
+.i-logout-large {
+   background-image: url(./icon/gnome_panel_force_quit.png) !important;
+   background-size: auto 100% ;
+}
+.i-edit-large {
+   background-image: url(./icon/note-edit-icon.png) !important;
+   background-size: auto 100% ;
+}
+.i-print-large {
+   background-image: url(./icon/Iconshock-Real-Vista-Text-Print.ico) !important;
+   background-size: auto 100% ;
+}
+.i-verified-large {
+   background-image: url(./icon/icon-confirmation@2x.png) !important;
+   background-size: auto 100% ;
+}
+.i-add {
+   background-image: url(./icon/control_add.png) !important;
+}
+.i-del {
+   background-image: url(./icon/control_remove.png) !important;
+}
+.i-refresh {
+   background-image: url(./icon/reload.png) !important;
+}
+.i-home {
+   background-image: url(./icon/bullet_home.png) !important;
+}
+.i-user {
+   background-image: url(./icon/user_mature.png) !important;
+}
+.i-menu {
+   background-image: url(./icon/application_osx_add.png) !important;
+}
+.i-save{
+   background-image: url(./icon/disk_magnify.png) !important;
+}
+.i-search{
+   background-image: url(./icon/bullet_magnify.png) !important;
+}
+.i-off{
+   background-image: url(./icon/control_power_blue.png) !important;
+}
+.i-close{
+   background-image: url(./icon/bullet_cross.png) !important;
+}
+.i-edit{
+   background-image: url(./icon/bullet_edit.png) !important;
+}
+.i-role{
+   background-image: url(./icon/user_key.png) !important;
+}
+.i-profile{
+   background-image: url(./icon/user_home.png) !important;
+}
+.i-yes{
+   background-image: url(./icon/bullet_tick.png) !important;
+}
+.i-no{
+   background-image: url(./icon/decline.png) !important;
+}
+.i-reset{
+   background-image: url(./icon/erase.png) !important;
+}
+.i-t{
+   background-image: url(./icon/stop_green.png) !important;
+   background-size: 60%;
+}
+.i-f{
+   background-image: url(./icon/stop_red.png) !important;
+   background-size: 60%;
+}
+.i-lap{
+	background-image: url(./icon/page_header_footer.png) !important;
+}
+.i-print{
+	background-image: url(./icon/printer_mono.png) !important;
+}
+.i-replace{
+   background-image: url(./icon/arrow_switch_bluegreen.png) !important;
+}
+.i-download{
+   background-image: url(./icon/disk_download.png) !important;
+}
+.i-foto{
+   background-image: url(./icon/page_portrait_shot.png) !important;
+}
+.i-info{
+   background-image: url(./icon/comment_dull.png) !important;
+}
+.i-page{
+   background-image: url(./icon/bullet_page_white.png) !important;
+}
+.i-chat{
+   background-image: url(./icon/comment_dull.png) !important;
+}
+.i-collapse{
+   background-image: url(./icon/section_collapsed.png) !important;
+}
+.i-expand{
+   background-image: url(./icon/section_expanded.png) !important;
+}
+.i-chart{
+	background-image: url(./icon/brick_magnify.png) !important;
+}
+.i-next{
+	background-image: url(./icon/forward_green.png) !important;
+}
+.i-prev{
+	background-image: url(./icon/rewind_green.png) !important;
+}
+.i-window{
+	background-image: url(./icon/application_osx_double.png) !important;
+}
+
+/*.x-mask {
+    filter: alpha(opacity=50);
+    opacity: 0 !important;
+}*/

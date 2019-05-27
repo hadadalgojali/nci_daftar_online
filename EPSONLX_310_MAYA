@@ -1,0 +1,175 @@
+
+		<html>
+		<head>
+			<style>
+	 			.normal{
+					width: 100%;
+					font-family: Times New Roman, Helvetica, sans-serif;
+   					border-collapse: none;
+				} 
+				
+					
+				.bottom{
+					border-bottom: none;
+	 				font-size: 12px;
+				}
+	 			
+				div{
+	 				text-align: justify;
+					border:1px none;
+    				text-justify: inter-word;
+	 			}
+				@media print{
+					.no-print, .no-print *{
+						display: none !important;
+					}
+				}
+           </style>
+			
+		</head>
+		<body style='padding-top:100px;'>
+		<table style='margin: 50px 50px 0px 50px;' cellspacing='0' border='0'>
+   			<tr align=justify>
+   				<th border='0';  width='10%' align='center'>
+   					<img src='http://localhost:85/rssm_online/include/logo.png' width='50' height='35'/>
+   				</th>
+   				<th align='center'  >
+					<font style='font-size: 12px;font-family: Calibri;line-height:90%;letter-spacing: 2px;'><b>SURAT ELEGIBILITAS PESERTA</b></font><br>
+					<font style='font-size: 8px;font-family: Calibri;line-height:90%;letter-spacing: 2px;'>RSUD DR. SOEDONO MADIUN</font><br>
+   				</th>
+				<th border='0' width='30%' align='center'>
+   					<img src='http://localhost:85/rssm_online/include/Logo BPJS.png' width='170' height='20'/>
+   				</th>
+   			</tr>
+   		</table>
+		<br/>
+				
+				<table background="white" cellspacing="0" border="0" style="font-color:#000000;font-size: 9px;font-family:  Calibri; margin: 0px 10px;line-height:90%;letter-spacing: 1px;font-stretch: condensed;">
+				<tr style="height: 5px;">
+					<td width="100">No. SEP</td>
+					<td width="6">:</td>
+					<td width="300" style="font-size:12px;"><b>1308R0010818V001228</b></td>
+					<td width="26">&nbsp;</td>
+					<td width="100">No. Mr</td>
+					<td width="8">:</td>
+					<td width="100">0-00-00-52</td>
+				</tr>
+				<tr>
+					<td width="100">Tgl. SEP</td>
+					<td width="6">:</td>
+					<td>02/08/2018</td>
+					<td width="26"></td>
+					<td></td>
+					<td width="8"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td width="100">No. Kartu</td>
+					<td width="6">:</td>
+					<td style="font-size:12px;"><b>0000739471814</b></td>
+					<td width="26">&nbsp;</td>
+					<td>Peserta</td>
+					<td width="8">:</td>
+					<td rowspan="2" valign="top">PBI (APBN)</td>
+				</tr>
+				<tr>
+					<td width="100">Nama Peserta</td>
+					<td width="6">:</td>
+					<td>MUNTARI</td>
+				</tr>
+				<tr>
+					<td width="100">Tgl. Lahir</td>
+					<td width="6">:</td>
+					<td>01/07/1950 Kelamin : PRIA</td>
+					<td width="26"></td>
+					<td>COB</td>
+					<td width="8">:</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td width="100">No Telepon</td>
+					<td width="6">:</td>
+					<td>08996963219</td>
+					<td width="26">&nbsp;</td>
+					<td>Jns. Rawat</td>
+					<td width="8">:</td>
+					<td>Rawat Jalan</td>
+					
+				</tr>
+				<tr>
+					<td width="100">Poli Tujuan</td>
+					<td width="6">:</td>
+					<td>BEDAH</td>
+					<td width="26">&nbsp;</td>
+					<td>Kls. Rawat</td>
+					<td width="8">:</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td width="100">Asal Faskes Tk. 1</td>
+					<td width="6">:</td>
+					<td> KAWEDANAN</td>
+					<td width="26">&nbsp;</td>
+					<td>Operator</td>
+					<td width="8">:</td>
+					<td> operator </td>
+				</tr>
+				<tr>
+					<td width="100">Diagnosa Awal</td>
+					<td width="6">:</td>
+					<td>Unspecified injury of lower leg...</td>
+					<td width="26">&nbsp;</td>
+					<td></td>
+					<td width="8"></td>
+					<td></td>
+					
+				</tr>
+				<tr>
+					<td width="100">Catatan</td>
+					<td width="6">:</td>
+					<td>-</td>
+					<td width="26">&nbsp;</td>
+					<td align="center"></td>
+					<td colspan="2"  align="center">Pasien / Keluarga Pasien</td>
+					
+				</tr>
+				<tr>
+					<td width="100"></td>
+					<td width="6"></td>
+					<td></td>
+					<td width="26">&nbsp;</td>
+					<td align="center"></td>
+					<td width="8"></td>
+					<td align="center"></td>
+				</tr>
+				 <tr>
+					<td colspan="3";><font style="font-weight:bold;font-size: 7px;font-family: Arial;"><i>*Saya Menyetujui BPJS Kesehatan menggunakan informasi Medis Pasien jika diperlukan</i></td>
+					<td width="26"></td>
+					<td>&nbsp;</td>
+					<td width="8"></td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+				   <td colspan="3";><font style="font-weight:bold;font-size: 7px;font-family:Arial;"><i>*SEP bukan sebagai bukti penjamin peserta</td>
+				   <td></td>
+				  <td>&nbsp;</td>
+				   <td></td>
+				   <td>&nbsp;</td>
+				</tr>
+				<tr>
+				  <td colspan="3";>&nbsp;</td>
+				  <td></td>
+				  <td>&nbsp;</td>
+				  <td></td>
+				  <td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="3";>Cetakan Ke 1 : 02-Aug-2018 10:49:20</td>
+					<td width="26"></td>
+					<td  align="left" width="100"></td>
+					<td colspan="2" align="center"><hr width="100"></td>
+				</tr> 
+				</table>
+			</body>
+			</html>
+			
