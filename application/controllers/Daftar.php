@@ -1892,35 +1892,34 @@ class Daftar extends CI_Controller {
 			")->row();
 
 			if(count($cari_pasien_pg) > 0){
-				$params_pasien=array();
-				$param_kd_pasien 	=  $cari_pasien_pg->kd_pasien;
-				$param_nama_pasien 	=  $cari_pasien_pg->nama;
-				$param_tempat_lahir =  $cari_pasien_pg->tempat_lahir;
-				$param_tgl_lahir 	=  $cari_pasien_pg->tgl_lahir;
-				$param_jk 			=  $cari_pasien_pg->jenis_kelamin;
-				$param_agama 		=  $cari_pasien_pg->kd_agama;
-				$param_gol_darah 	=  $cari_pasien_pg->gol_darah;
-				$param_pendidikan 	=  $cari_pasien_pg->kd_pendidikan;
-				$param_alamat 		=  $cari_pasien_pg->alamat;
-				$param_telepon		=  $cari_pasien_pg->telepon;
-				$param_kelurahan	=  $cari_pasien_pg->kd_kelurahan;
-				$param_kecamatan	=  $cari_pasien_pg->kd_kecamatan;
-				$param_kabupaten	=  $cari_pasien_pg->kd_kabupaten;
-				$param_propinsi		=  $cari_pasien_pg->kd_propinsi;
-				$param_kd_pos		=  $cari_pasien_pg->kd_pos;
-				$param_ktp 			=  $cari_pasien_pg->tanda_pengenal;
+				$params_pasien       = array();
+				$param_kd_pasien 	   = $cari_pasien_pg->kd_pasien;
+				$param_nama_pasien 	 = $cari_pasien_pg->nama;
+				$param_tempat_lahir  = $cari_pasien_pg->tempat_lahir;
+				$param_tgl_lahir 	   = $cari_pasien_pg->tgl_lahir;
+				$param_jk 			     = $cari_pasien_pg->jenis_kelamin;
+				$param_agama 		     = $cari_pasien_pg->kd_agama;
+				$param_gol_darah 	   = $cari_pasien_pg->gol_darah;
+				$param_pendidikan 	 = $cari_pasien_pg->kd_pendidikan;
+				$param_alamat 		   = $cari_pasien_pg->alamat;
+				$param_telepon		   = $cari_pasien_pg->telepon;
+				$param_kelurahan	   = $cari_pasien_pg->kd_kelurahan;
+				$param_kecamatan	   = $cari_pasien_pg->kd_kecamatan;
+				$param_kabupaten	   = $cari_pasien_pg->kd_kabupaten;
+				$param_propinsi		   = $cari_pasien_pg->kd_propinsi;
+				$param_kd_pos		     = $cari_pasien_pg->kd_pos;
+				$param_ktp 			     = $cari_pasien_pg->tanda_pengenal;
 
 				//insert kelurahan
-				$tmp_kelurahan 			= $this->getKelurahanPG($param_kelurahan);
-
-				$get_param_status 		= $tmp_kelurahan['status'];
-				$daerah					= 'false';
+				$tmp_kelurahan 			 = $this->getKelurahanPG($param_kelurahan);
+				$get_param_status 	 = $tmp_kelurahan['status'];
+				$daerah					     = 'false';
 
 				//kecamatan tidak ada
 				if ($get_param_status == 'false'){
 					//insert kecamatan
-					$tmp_kecamatan 		=	$this->getKecamatanPG($tmp_kelurahan['kd_kecamatan']);
-					$status_kecamatan 	= 	$tmp_kecamatan['status'];
+					$tmp_kecamatan 		   = $this->getKecamatanPG($tmp_kelurahan['kd_kecamatan']);
+					$status_kecamatan 	 = $tmp_kecamatan['status'];
 
 					if($status_kecamatan == 'true'){
 						$insert_kelurahan 		=  $this->getKelurahanPG($param_kelurahan); //insert kelurahan ketika kecamatan sudah ditambahkan
@@ -1929,13 +1928,12 @@ class Daftar extends CI_Controller {
 					}else{
 						//kabupaten tidak ada
 						//insert kabupaten
-						$insert_kabupaten = $this->getKabupatenPG($tmp_kecamatan['kd_kabupaten']);
+						$insert_kabupaten      = $this->getKabupatenPG($tmp_kecamatan['kd_kabupaten']);
 						//insert kecamatan
-						$insert_kecamatan = $this->getKecamatanPG($tmp_kelurahan['kd_kecamatan']);
+						$insert_kecamatan      = $this->getKecamatanPG($tmp_kelurahan['kd_kecamatan']);
 						//insert kelurahan
-						$insert_kelurahan = $this->getKelurahanPG($param_kelurahan);
-
-						$get_param_kelurahan 	=  $insert_kelurahan['kd_kelurahan'];
+						$insert_kelurahan      = $this->getKelurahanPG($param_kelurahan);
+						$get_param_kelurahan 	 = $insert_kelurahan['kd_kelurahan'];
 						$daerah = 'true';
 					}
 
