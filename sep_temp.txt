@@ -1,16 +1,16 @@
-@CNo. Sep             : !E1308R0011218V000081F!                                    
-Tgl. Sep            : E2018-12-04F                                                       No. Mr         : 6-59-08-34
-No. Kartu           : !E0000104951406F!                                            Peserta        : PENERIMA PENSIUN TNI
-Nama Peserta        : SRIWATI                                                          
-Tgl. Lahir          : 1953-03-23                                                       COB            : -
-Jns. Kelamin        : WANITA                                                           Jns. Rawat     : Rawat Jalan
-Poli Tujuan         : BEDAH SARAF                                                      Kls. Rawat     : 
-Asal Faskes TK 1    : DAGANGAN                                                         Operator       : operator
-Diagnosa Awal       : Whooping cough due to Bordetella pertussis                       
+@CNo. Sep             : !E1308R0010319V004831F!                                    
+Tgl. Sep            : E2019-03-15F                                                       No. Mr         : 6-75-47-67
+No. Kartu           : !E0002052345947F!                                            Peserta        : PBI (APBD)
+Nama Peserta        : SUNAR                                                            
+Tgl. Lahir          : 1959-03-16                                                       COB            : -
+Jns. Kelamin        : PRIA                                                             Jns. Rawat     : Rawat Jalan
+Poli Tujuan         : ORTHOPEDI                                                        Kls. Rawat     : 
+Asal Faskes TK 1    :                                                                  Operator       : operator
+Diagnosa Awal       : Low back pain                                                    
 Catatan             : Pendaftaran Online                                                                    Pasien / Keluarga pasien
 *Saya Menyetujui BPJS Kesehatan menggunakan informasi Medis Pasien jika diperlukan
 *SEP bukan sebagai bukti penjamin peserta
-Cetakan Ke 1 : 04-Dec-2018 13:42:35                                                                        .................
+Cetakan Ke 1 : 15-Mar-2019 09:04:16                                                                        .................
  
  
  

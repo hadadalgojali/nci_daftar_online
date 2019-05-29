@@ -3,51 +3,51 @@ if(! defined('BASEPATH')) exit('No direct script access allowed');
 class Common {
 	protected $model=array(
 			// app
-			'Banner'=>'Entity\app\Banner',
-			'DynamicOption'=> 'Entity\app\DynamicOption',
-			'Employee'=> 'Entity\app\a5\Employee',
-			'Error'=> 'Entity\app\Error',
-			'Job'=> 'Entity\app\a16\Job',
-			'Menu'=> 'Entity\app\a2\Menu',
-			'Role'=> 'Entity\app\a3\Role',
-			'RoleMenu'=> 'Entity\app\a3\RoleMenu',
-			'ParameterOption'=> 'Entity\app\a4\ParameterOption',
-			'Parameter'=> 'Entity\app\a4\Parameter',
-			'PDFTemplate'=> 'Entity\app\a9\PDFTemplate',
-			'Sequence'=> 'Entity\app\a8\Sequence',
-			'SystemProperty'=> 'Entity\app\a6\SystemProperty',
-			'Tenant'=> 'Entity\app\a12\Tenant',
-			'User'=> 'Entity\app\a7\User',
+			'Banner'             =>'Entity\app\Banner',
+			'DynamicOption'      => 'Entity\app\DynamicOption',
+			'Employee'           => 'Entity\app\a5\Employee',
+			'Error'              => 'Entity\app\Error',
+			'Job'                => 'Entity\app\a16\Job',
+			'Menu'               => 'Entity\app\a2\Menu',
+			'Role'               => 'Entity\app\a3\Role',
+			'RoleMenu'           => 'Entity\app\a3\RoleMenu',
+			'ParameterOption'    => 'Entity\app\a4\ParameterOption',
+			'Parameter'          => 'Entity\app\a4\Parameter',
+			'PDFTemplate'        => 'Entity\app\a9\PDFTemplate',
+			'Sequence'           => 'Entity\app\a8\Sequence',
+			'SystemProperty'     => 'Entity\app\a6\SystemProperty',
+			'Tenant'             => 'Entity\app\a12\Tenant',
+			'User'               => 'Entity\app\a7\User',
 			// content
-			'Patient'=> 'Entity\content\Patient',
-			'Country'=> 'Entity\content\Country',
-			'Penyakit'=> 'Entity\content\Penyakit',
-			'PenyakitNonRujukan'=> 'Entity\content\PenyakitNonRujukan',
-			'Faskes'=> 'Entity\content\Faskes',
-			'FaskesAccount'=> 'Entity\content\FaskesAccount',
-			'SimulasiPembayaran'=> 'Entity\content\SimulasiPembayaran',
-			'FaskesDokter'=> 'Entity\content\FaskesDokter',
-			'JadwalPoli'=> 'Entity\content\JadwalPoli',
-			'Antrian'=> 'Entity\content\Antrian',
-			'Country'=> 'Entity\content\Country',
-			'Province'=> 'Entity\content\Province',
-			'District'=> 'Entity\content\District',
-			'Districts'=> 'Entity\content\Districts',
-			'Kelurahan'=> 'Entity\content\Kelurahan',
-			'Unit'=> 'Entity\content\Unit',
-			'Customer'=> 'Entity\content\Customer',
-			'Rujukan'=> 'Entity\content\Rujukan',
-			'Penyakit'=> 'Entity\content\Penyakit',
-			'Visit'=> 'Entity\content\Visit',
-			'PasienInap'=> 'Entity\content\PasienInap',
-			'UnitAbout'=> 'Entity\content\UnitAbout' ,
-			'Feedback'=> 'Entity\content\Feedback' ,
-			'Promo'=> 'Entity\content\Promo' ,
-			'Kontraktor'=> 'Entity\content\Kontraktor' ,
-			'Kamar'=> 'Entity\content\Kamar' ,
-			'Temp'=> 'Entity\content\Temp' ,
-			'DokterKlinik'=> 'Entity\content\DokterKlinik' ,
-			'Artikel'=> 'Entity\content\Artikel' ,
+			'Patient'            => 'Entity\content\Patient',
+			'Country'            => 'Entity\content\Country',
+			'Penyakit'           => 'Entity\content\Penyakit',
+			'PenyakitNonRujukan' => 'Entity\content\PenyakitNonRujukan',
+			'Faskes'             => 'Entity\content\Faskes',
+			'FaskesAccount'      => 'Entity\content\FaskesAccount',
+			'SimulasiPembayaran' => 'Entity\content\SimulasiPembayaran',
+			'FaskesDokter'       => 'Entity\content\FaskesDokter',
+			'JadwalPoli'         => 'Entity\content\JadwalPoli',
+			'Antrian'            => 'Entity\content\Antrian',
+			'Country'            => 'Entity\content\Country',
+			'Province'           => 'Entity\content\Province',
+			'District'           => 'Entity\content\District',
+			'Districts'          => 'Entity\content\Districts',
+			'Kelurahan'          => 'Entity\content\Kelurahan',
+			'Unit'               => 'Entity\content\Unit',
+			'Customer'           => 'Entity\content\Customer',
+			'Rujukan'            => 'Entity\content\Rujukan',
+			'Penyakit'           => 'Entity\content\Penyakit',
+			'Visit'              => 'Entity\content\Visit',
+			'PasienInap'         => 'Entity\content\PasienInap',
+			'UnitAbout'          => 'Entity\content\UnitAbout' ,
+			'Feedback'           => 'Entity\content\Feedback' ,
+			'Promo'              => 'Entity\content\Promo' ,
+			'Kontraktor'         => 'Entity\content\Kontraktor' ,
+			'Kamar'              => 'Entity\content\Kamar' ,
+			'Temp'               => 'Entity\content\Temp' ,
+			'DokterKlinik'       => 'Entity\content\DokterKlinik' ,
+			'Artikel'            => 'Entity\content\Artikel' ,
 	);
 	public function getEmployee(){
 		$ci=& get_instance();
@@ -379,8 +379,8 @@ class Common {
 			$ci->jsonresult->error()->setMessage("Parameter Code '".$parameterCode."' Not Found.")->end();
 	}
 	public function doctrineSave($entity) {
-		$ci=& get_instance();
-		$em=$ci->doctrine->em;
+		$ci = & get_instance();
+		$em = $ci->doctrine->em;
 		$em->getConnection()->beginTransaction();
 		try{
 			$em->persist($entity);
@@ -746,49 +746,6 @@ class Common {
 		fwrite($cached, ob_get_contents());
 		fclose($cached);
 		ob_end_flush();
-	}
-
-	public function getHeader(){
-		$db=$this->load->database('other',true);
-		// $kd_rs = $this->CI->session->userdata['user_id']['kd_rs'];
-		$rs    = $db->query("SELECT * FROM db_rs")->row();
-		$telp='';
-		$fax='';
-		if(($rs->phone1 != null && $rs->phone1 != '')|| ($rs->phone2 != null && $rs->phone2 != '')){
-			$telp='Telp. ';
-			$telp1=false;
-			if($rs->phone1 != null && $rs->phone1 != ''){
-				$telp1=true;
-				$telp.=$rs->phone1;
-			}
-			if($rs->phone2 != null && $rs->phone2 != ''){
-				if($telp1==true){
-					$telp.='/'.$rs->phone2.'.';
-				}else{
-					$telp.=$rs->phone2.'.';
-				}
-			}else{
-				$telp.='.';
-			}
-		}
-		if($rs->fax != null && $rs->fax != ''){
-			$fax='Fax. '.$rs->fax.'.';
-				
-		}
-		return "<table style='font-size: 18;font-family: Arial, Helvetica, sans-serif;' cellspacing='0' border='0'>
-   			<tr>
-   				<td align='left'>
-   					<img src='./ui/images/Logo/LOGO.png' width='62' height='82' />
-   				</td>
-   				<td align='left' width='90%'>
-   					<font style='font-size: 10px;'>-<br></font>
-   					<b>".strtoupper($rs->name)."</b><br>
-			   		<font style='font-size: 9px;'>".$rs->address.", ".$rs->state.", ".$rs->zip."</font><br>
-			   		<font style='font-size: 9px;'>Email : ".$rs->email.", Website : ".$rs->Website."</font><br>
-			   		<font style='font-size: 8px;'>".$telp." ".$fax."</font>
-   				</td>
-   			</tr>
-   		</table>";
 	}
 }
 ?>

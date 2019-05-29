@@ -178,7 +178,9 @@ class ProxyFactory
         );
 
         $file = str_replace($placeholders, $replacements, $file);
+
         $parentDirectory = dirname($fileName);
+
         if ( ! is_dir($parentDirectory)) {
             if (false === @mkdir($parentDirectory, 0775, true)) {
                 throw ProxyException::proxyDirectoryNotWritable();
