@@ -45,9 +45,9 @@ function post($dat){
 
 	<div class="col-md-10">
 
-		
 
-		<?php 
+
+		<?php
 
 			if($this->session->get('ERROR') != null){
 
@@ -67,7 +67,7 @@ function post($dat){
 
 		?>
 
-		<?php 
+		<?php
 
 			if($this->session->get('SUCCESS') != null){
 
@@ -87,7 +87,7 @@ function post($dat){
 
 		?>
 
-		
+
 
 		<div class="menu-left-head">
 
@@ -95,12 +95,12 @@ function post($dat){
 
 			<div class="menu-left" style="padding: 0px !important;">
 
-				
+
 
 				<form id="form" class="form-signin" method="POST" autocomplete="off" action="<?php echo base_url()?>index.php/daftar/saveLama">
 
-					
-					<?php 
+
+					<?php
 
 						$now=new DateTime();
 
@@ -145,8 +145,8 @@ function post($dat){
 										</div>
 
 									</div>
-									
-									
+
+
 									<div class='form-group row'>
 
 										<div class="col-md-4">
@@ -156,7 +156,7 @@ function post($dat){
 										</div>
 
 										<div class="col-xs-8">
-		
+
 											<div id="tgllahira" class="input-group date">
 												  <input type="text" class="form-control item" value="<?php echo post('tgllahir') ?>"  name = "tgllahir" id="tgllahir" placeholder="(dd-mm-yyyy)">
 											</div>
@@ -198,11 +198,11 @@ function post($dat){
 											//if(post('jk')!= null && post('jk')=='GENDER_P'){
 											if(post('jk')!= null && ((post('jk')==f) || (post('jk')=='f'))){
 
-										?>	
+										?>
 
 											<input type="radio" name="jk" value="t" aria-label="..."> Laki-laki  <br>
 
-											<input type="radio" name="jk" value="f" aria-label="..."  checked> Perempuan 
+											<input type="radio" name="jk" value="f" aria-label="..."  checked> Perempuan
 
 										<?php
 
@@ -212,7 +212,7 @@ function post($dat){
 
 											<input type="radio" name="jk" value="t" aria-label="..."   checked> Laki-laki  <br>
 
-											<input type="radio" name="jk" value="f" aria-label="..."> Perempuan 
+											<input type="radio" name="jk" value="f" aria-label="..."> Perempuan
 
 										<?php
 
@@ -220,13 +220,13 @@ function post($dat){
 
 										?>
 
-											
+
 
 										</div>
 
 									</div>
 
-									
+
 
 									<div class="form-group row" style="display: none;">
 
@@ -254,11 +254,11 @@ function post($dat){
 
 										<div class="col-xs-8">
 											<input type="text" class="form-control" id="txtMedrec"  name="txtMedrec" placeholder="(0-00-00-00)">
-											
+
 											<input type="hidden" id="rm" name="rm" value="<?php echo post('rm') ?>" style="width: 100%">
 
 											<input type="hidden" id="hiddenRm" name="hiddenRm" value="<?php echo post('hiddenRm') ?>" >
-											
+
 											<script>
 
 												/* $('#rm').select2({
@@ -303,9 +303,9 @@ function post($dat){
 
 													}
 
-												}).on("change", function (e) { 
+												}).on("change", function (e) {
 
-													$('#hiddenRm').val(e.added.text); 
+													$('#hiddenRm').val(e.added.text);
 
 													$.ajax({
 
@@ -452,7 +452,7 @@ function post($dat){
 										</div>
 
 									</div>
-									
+
 									<div class="form-group row" style="margin-bottom:20px;">
 
 										<div class="col-md-4">
@@ -461,14 +461,14 @@ function post($dat){
 
 										<div class="col-md-8">
 												<a href="javascript: cariPasien();">
-													<button type="button" class="btn btn-primary " style="border-radius: 10px;"> Cari &nbsp;  <span class="glyphicon glyphicon-search"></span> </button> 
+													<button type="button" class="btn btn-primary " style="border-radius: 10px;"> Cari &nbsp;  <span class="glyphicon glyphicon-search"></span> </button>
 												</a>
-												
+
 											<script>
 												function cariPasien(){
 													var medrec_temp = formatnomedrec($('#txtMedrec').val());
 													$('#txtMedrec').val(medrec_temp);
-													
+
 													if($('#txtMedrec').val() !='' && $('#tgllahir').val() != ''){
 														console.log($('#txtMedrec').val(),$('#tgllahir').val());
 														$.ajax({
@@ -595,7 +595,7 @@ function post($dat){
 
 																   $('#kdpos').val(o.postalCode);
 																}
-															   
+
 
 														   },
 
@@ -606,7 +606,7 @@ function post($dat){
 													}else{
 														$('#myModal_MessageWarning').modal();
 													}
-												} 
+												}
 											</script>
 										</div>
 
@@ -629,9 +629,9 @@ function post($dat){
 
 									</div>
 
-									
+
 									<!-- end tambah button cari pasien-->
-									
+
 									<div class="form-group row" style="display: none;">
 
 										<div class="col-md-4">
@@ -768,7 +768,7 @@ function post($dat){
 
 									</div>
 
-									
+
 
 								</div>
 
@@ -887,9 +887,9 @@ function post($dat){
 
 													},
 
-												}).on("change", function (e) { 
+												}).on("change", function (e) {
 
-													$('#hiddenNegara').val(e.added.text); 
+													$('#hiddenNegara').val(e.added.text);
 
 													if($(this).val()==0){
 
@@ -993,9 +993,9 @@ function post($dat){
 
 													}
 
-												}).on("change", function (e) { 
+												}).on("change", function (e) {
 
-													$('#hiddenProvinsi').val(e.added.text); 
+													$('#hiddenProvinsi').val(e.added.text);
 
 													if($(this).val()==0){
 
@@ -1097,9 +1097,9 @@ function post($dat){
 
 													},
 
-												}).on("change", function (e) { 
+												}).on("change", function (e) {
 
-													$('#hiddenKota').val(e.added.text); 
+													$('#hiddenKota').val(e.added.text);
 
 													if($(this).val()==0){
 
@@ -1201,9 +1201,9 @@ function post($dat){
 
 													},
 
-												}).on("change", function (e) { 
+												}).on("change", function (e) {
 
-													$('#hiddenKecamatan').val(e.added.text); 
+													$('#hiddenKecamatan').val(e.added.text);
 
 													if($(this).val()==0){
 
@@ -1305,9 +1305,9 @@ function post($dat){
 
 													},
 
-												}).on("change", function (e) { 
+												}).on("change", function (e) {
 
-													$('#hiddenKelurahan').val(e.added.text); 
+													$('#hiddenKelurahan').val(e.added.text);
 
 													if($(this).val()==0){
 
@@ -1397,9 +1397,9 @@ function post($dat){
 
 
 
-									<input type="hidden"  readonly="true" maxlength="66" class="form-control" id="hidden_kd_poli_lama" value="" name="hidden_kd_poli_lama" required  style="display:none"> 
+									<input type="hidden"  readonly="true" maxlength="66" class="form-control" id="hidden_kd_poli_lama" value="" name="hidden_kd_poli_lama" required  style="display:none">
 
-									<input type="hidden"  readonly="true" maxlength="26" class="form-control" id="hidden_nilai_faskes_lama" value="" name="hidden_nilai_faskes_lama" required  style="display:none"> 
+									<input type="hidden"  readonly="true" maxlength="26" class="form-control" id="hidden_nilai_faskes_lama" value="" name="hidden_nilai_faskes_lama" required  style="display:none">
 
 
 
@@ -1409,7 +1409,7 @@ function post($dat){
 						<div style="padding-top:7px; padding-bottom:7px; padding-left:2px;">
 							<span class="glyphicon glyphicon-list-alt"></span> &nbsp;<strong>Data</strong> Kunjungan
 						</div>
-						
+
 						<div class="menu-left" style="padding: 10px;">
 
 							<div class="row">
@@ -1502,7 +1502,7 @@ function post($dat){
 
 													        alert("There is an error with AJAX!");
 
-													    }               
+													    }
 
 													});
 
@@ -1510,7 +1510,7 @@ function post($dat){
 
 													 $('#hiddenKelompok').val(e.added.text);
 
-													  var kata = e.added.text; 
+													  var kata = e.added.text;
 
 													  var x =kata.match(/BPJS/);
 
@@ -1527,7 +1527,7 @@ function post($dat){
 													  console.log(kd_bpjs);
 
    													  if(kd_bpjs==1){
-   													  		document.getElementById("form_jenis_kunjungan").style.display='block'; 
+   													  		document.getElementById("form_jenis_kunjungan").style.display='block';
    													  }else {
    													  	 	document.getElementById("AreaBpjs").style.display='none';
 															document.getElementById("lbl_no_kartu").style.display='none';
@@ -1546,9 +1546,9 @@ function post($dat){
 															document.getElementById("div_id_faskes_lama").style.display='none';
 															document.getElementById("lbl_tgl_rujukan_lama").style.display='none';
 															document.getElementById("tgl_rujukan_lama").style.display='none';
-															document.getElementById("konten_NoDPJP_lama").style.display='none'; 
-															document.getElementById("form_jenis_kunjungan").style.display='none'; 
-   													  }													 
+															document.getElementById("konten_NoDPJP_lama").style.display='none';
+															document.getElementById("form_jenis_kunjungan").style.display='none';
+   													  }
 
 													});
 
@@ -1572,7 +1572,7 @@ function post($dat){
 
 									</div>
 
-									<!-- (2019-02-27) Pemisah jenis kunjungan episode baru/lanjutan --> 
+									<!-- (2019-02-27) Pemisah jenis kunjungan episode baru/lanjutan -->
 									<div class="form-group row" id ="form_jenis_kunjungan" style="display:none;">
 										<div class="col-md-4">
 											<label for="jenis_kunjungan">Jenis Kunjungan:</label>
@@ -1599,12 +1599,18 @@ function post($dat){
 														},
 														cache: true
 													},
-												}).on("change", function (e) { 
-													$('#hidden_jenis_kunjungan').val(e.added.text); 
+												}).on("change", function (e) {
+													$('#hidden_jenis_kunjungan').val(e.added.text);
+													$('#tgl_rujukan_lama').val('');
+													$('#faskes_lama').val('');
+													$('#kelas_lama').val('');
+													$('#diagnosa_lama').val('');
+													$('#poli_lama').val('');
+													// $("#poliklinik").select2("val", "");
 													//console.log(e.added.id);
 													// console.log($('#jenis_kunjungan').val());
 													if($('#jenis_kunjungan').val() == 1){
-														 $('#myModal_MessageInfoKunjunganBaru').modal();
+														$('#myModal_MessageInfoKunjunganBaru').modal();
 														document.getElementById("AreaBpjs").style.display='block';
 														document.getElementById("lbl_no_kartu").style.display='block';
 														document.getElementById("no_kartu").style.display='block';
@@ -1729,6 +1735,10 @@ function post($dat){
 															}
 														});
 													}else{
+														// DISINI
+														$("#poliklinik").select2("val", "");
+														$('#kelompok').select2("val", "");
+														$('#jenis_kunjungan').select2("val", "");
 														document.getElementById('group_form_lanjutan').style.display  = 'none';
 														document.getElementById("AreaBpjs").style.display             = 'none';
 														document.getElementById("lbl_no_kartu").style.display         = 'none';
@@ -1782,7 +1792,7 @@ function post($dat){
 
 									</div>
 
-									
+
 
 									<div class='form-group row'>
 
@@ -1822,17 +1832,17 @@ function post($dat){
 
 											   });
 
-												$('#tglReg').bind("blur", function (e) { 
+												$('#tglReg').bind("blur", function (e) {
 
 													checkJadwal();
 
 												});
 
-												<?php 
+												<?php
 
 													if(post('tglReg') == null){
 
-														
+
 
 												?>
 
@@ -1840,7 +1850,7 @@ function post($dat){
 													//now.setDate(now.getDate()+1); //date + 1
 													var tgl_tmp = ("0" + (now.getDate())).slice(-2); // format 2 digit
 													var bulan_tmp = ("0" + (now.getMonth()+1)).slice(-2); //format 2 digit
-													$('#tglReg').val(tgl_tmp+'-'+bulan_tmp+'-'+now.getFullYear()); 
+													$('#tglReg').val(tgl_tmp+'-'+bulan_tmp+'-'+now.getFullYear());
 													//$("#tglReg").prop('disabled', true);
 												<?php
 
@@ -1922,12 +1932,12 @@ function post($dat){
 
 													},
 
-												}).on("change", function (e) { 
+												}).on("change", function (e) {
 														console.log('test1');
-													$('#hiddenPoliklinik').val(e.added.text); 
+													$('#hiddenPoliklinik').val(e.added.text);
 														console.log('test2');
-													$('#hiddenDokter').val('45'); 
-													$('#dokter').val('45'); 
+													$('#hiddenDokter').val('45');
+													$('#dokter').val('45');
 														console.log('test3');
 
 													checkJadwal();
@@ -1954,7 +1964,7 @@ function post($dat){
 
 												$('#hiddenPoliklinik').val('<?php echo $this->input->get('unit_name') ?>');
 
-												<?php 
+												<?php
 
 													}
 
@@ -2018,9 +2028,9 @@ function post($dat){
 
 													},
 
-												}).on("change", function (e) { 
+												}).on("change", function (e) {
 
-													$('#hiddenDokter').val(e.added.text); 
+													$('#hiddenDokter').val(e.added.text);
 
 													checkJadwal();
 
@@ -2046,7 +2056,7 @@ function post($dat){
 
 												$('#hiddenDokter').val('<?php echo $this->input->get('dokter_name') ?>');
 
-												<?php 
+												<?php
 
 													}
 
@@ -2065,17 +2075,17 @@ function post($dat){
 									var tgl_skrg = tgl_now+'-'+bulan_now+'-'+getnow.getFullYear();
 									var jam_skrg = getnow.getHours() < 10 ? "0" + getnow.getHours() : getnow.getHours();
 									var menit_skrg = getnow.getMinutes() < 10 ? "0" + getnow.getMinutes() : getnow.getMinutes();
-			
+
 									var getbesok=new Date();
 									getbesok.setDate(getbesok.getDate()+1); //date + 1
 									var tgl_tommorow = ("0" + (getbesok.getDate())).slice(-2); // format 2 digit
 									var bulan_besok = ("0" + (getbesok.getMonth()+1)).slice(-2); //format 2 digit
 									var tgl_besok = tgl_tommorow+'-'+bulan_besok+'-'+getbesok.getFullYear();
-									
+
 									console.log(jam_skrg);
 
 									function checkJadwal(){
-										
+
 										$('#div-cek-error').hide();
 										$('#div-cek-success').hide();
 
@@ -2085,10 +2095,10 @@ function post($dat){
 										var tgl_input2 = new Date(tgl_input[2], tgl_input[1] - 1, tgl_input[0])
 										console.log(tgl_input2.getDay());
 
-										
+
 
 										// validasi bisa daftar hari ini dan besok
-										if(( $('#tglReg').val() == tgl_skrg || $('#tglReg').val() == tgl_besok ) && (tgl_input2.getDay() > 0 && tgl_input2.getDay() < 6)){ 
+										if(( $('#tglReg').val() == tgl_skrg || $('#tglReg').val() == tgl_besok ) && (tgl_input2.getDay() > 0 && tgl_input2.getDay() < 6)){
 											console.log('boleh daftar');
 											if($('#tglReg').val() == tgl_skrg){
 												if(jam_skrg >= "14"){
@@ -2126,7 +2136,7 @@ function post($dat){
 													}else{
 														$('#myModal_MessageWarningCekTglBerobat').modal();
 													}
-													
+
 												}else{
 													if($('#dokter').val() !='' && $('#poli_lamaklinik').val() !='' && $('#tglReg').val() !=''){
 														$.ajax({
@@ -2183,7 +2193,7 @@ function post($dat){
 													});
 												}
 											}
-											
+
 										}else{
 											$('#myModal_MessageWarningCekTglBerobat').modal();
 										}
@@ -2224,7 +2234,7 @@ function post($dat){
 
 								<div class="col-md-6">
 
-									
+
 
 								</div>
 
@@ -2236,7 +2246,7 @@ function post($dat){
 											<label for="no_sep" id="lbl_no_sep"> No Sep  :</label>
 										</div>
 										<div class="col-md-8">
-											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_no_sep" value="" name="txt_no_sep" > 
+											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_no_sep" value="" name="txt_no_sep" >
 										</div>
 									</div>
 									<div class="form-group row">
@@ -2244,7 +2254,7 @@ function post($dat){
 											<label for="tgl_sep" id="lbl_tgl_sep"> Tgl SEP :</label>
 										</div>
 										<div class="col-md-8">
-											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_tgl_sep" value="" name="txt_tgl_sep" > 
+											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_tgl_sep" value="" name="txt_tgl_sep" >
 										</div>
 									</div>
 									<!-- <div class="form-group row">
@@ -2252,7 +2262,7 @@ function post($dat){
 											<label for="no_sep" id="lbl_no_sep"> No DPJP :</label>
 										</div>
 										<div class="col-md-8">
-											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_no_dpjp" value="" name="txt_no_dpjp" > 
+											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_no_dpjp" value="" name="txt_no_dpjp" >
 										</div>
 									</div> -->
 									<!-- <div class="form-group row">
@@ -2260,7 +2270,7 @@ function post($dat){
 											<label for="no_sep" id="lbl_no_sep"> Tgl Rujukan :</label>
 										</div>
 										<div class="col-md-8">
-											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_tgl_rujukan" value="" name="txt_tgl_rujukan" > 
+											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_tgl_rujukan" value="" name="txt_tgl_rujukan" >
 										</div>
 									</div>
 									<div class="form-group row">
@@ -2268,7 +2278,7 @@ function post($dat){
 											<label> Faskes Asal :</label>
 										</div>
 										<div class="col-md-8">
-											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_faskes_asal" value="" name="txt_faskes_asal" > 
+											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_faskes_asal" value="" name="txt_faskes_asal" >
 										</div>
 									</div>
 									<div class="form-group row">
@@ -2276,7 +2286,7 @@ function post($dat){
 											<label> Kelas :</label>
 										</div>
 										<div class="col-md-8">
-											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_kelas" value="" name="txt_kelas" > 
+											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_kelas" value="" name="txt_kelas" >
 										</div>
 									</div>
 									<div class="form-group row">
@@ -2284,7 +2294,7 @@ function post($dat){
 											<label> Diagnosa :</label>
 										</div>
 										<div class="col-md-8">
-											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_diagnosa" value="" name="txt_diagnosa" > 
+											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_diagnosa" value="" name="txt_diagnosa" >
 										</div>
 									</div>
 									<div class="form-group row">
@@ -2292,7 +2302,7 @@ function post($dat){
 											<label> Poliklinik Rujukan :</label>
 										</div>
 										<div class="col-md-8">
-											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_poli_rujukan" value="" name="txt_poli_rujukan" > 
+											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_poli_rujukan" value="" name="txt_poli_rujukan" >
 										</div>
 									</div>
 									<div class="form-group row">
@@ -2300,7 +2310,7 @@ function post($dat){
 											<label> Pemberi Surat :</label>
 										</div>
 										<div class="col-md-8">
-											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_pemberi_surat" value="" name="txt_pemberi_surat" > 
+											<input type="text"  maxlength="26" disabled="disabled" class="form-control" id="txt_pemberi_surat" value="" name="txt_pemberi_surat" >
 										</div>
 									</div> -->
 								</div>
@@ -2316,12 +2326,12 @@ function post($dat){
 
 										<div class="col-md-8">
 
-											<input type="text"  maxlength="26" class="form-control" id="no_kartu" value="" name="no_kartu"   style="display:none"> 
+											<input type="text"  maxlength="26" class="form-control" id="no_kartu" value="" name="no_kartu"   style="display:none">
 											<input type="text"  maxlength="26" class="form-control" id="no_kartu_bpjs" value="" name="no_kartu_bpjs"   style="display:none;">  <!-- disini -->
 
 										</div>
 									</div>
-									
+
 									<div class="form-group row" id="div_id_faskes_lama" style="display:none">
 
 										<div class="col-md-4" style="display:none;">
@@ -2332,22 +2342,22 @@ function post($dat){
 
 										<div class="col-md-4" style="display:none;">
 											<input type="radio" name="rbfaskeslama" value="1" id="rbfaskes1_lama" aria-label="..." checked> 1 (Pcare)  <br>
-											<input type="radio" name="rbfaskeslama" value="2" id="rbfaskes2_lama" aria-label="..."  > 2 (Rumah Sakit)	
+											<input type="radio" name="rbfaskeslama" value="2" id="rbfaskes2_lama" aria-label="..."  > 2 (Rumah Sakit)
 										</div>
 										<div class="col-md-4">
 											&nbsp;
 										</div>
 										<div class="col-md-4">
-											
-											<button type="button" id="btn_cek_no_kartu_lama" class="btn btn-primary " style="display:none" value="Cek" onclick="javascript: cek_no_kartu();" > Cek &nbsp;<span class="glyphicon glyphicon-refresh"> </span> </button> 
-											
+
+											<button type="button" id="btn_cek_no_kartu_lama" class="btn btn-primary " style="display:none" value="Cek" onclick="javascript: cek_no_kartu();" > Cek &nbsp;<span class="glyphicon glyphicon-refresh"> </span> </button>
+
 										</div>
-										
+
 
 									</div>
 
 								</div>
-									
+
 								<div class="col-md-6" style="display:none;">
 
 									<div class="form-group row">
@@ -2360,7 +2370,7 @@ function post($dat){
 
 										<div class="col-md-8">
 
-											<input type="text"  readonly="true" maxlength="26" class="form-control" id="no_rujukan_lama" value="" name="no_rujukan_lama" required  style="display:none"> 
+											<input type="text"  readonly="true" maxlength="26" class="form-control" id="no_rujukan_lama" value="" name="no_rujukan_lama" required  style="display:none">
 
 										</div>
 
@@ -2371,7 +2381,7 @@ function post($dat){
 								<div class="col-md-6" style="height:5px;">
 									&nbsp;
 								</div>
-								
+
 								<!-- TAMBAH ATRIBUT TGL RUJUKAN -->
 								<div class="col-md-6" style="display:none" id="AreaBpjs">
 									<div class="form-group row">
@@ -2380,7 +2390,7 @@ function post($dat){
 										</div>
 										<div class="col-md-8">
 											<input type="text"  readonly="true" maxlength="26" class="form-control" id="tgl_rujukan_lama" value=""
-											 name="tgl_rujukan_lama" required  style="display:none"> 
+											 name="tgl_rujukan_lama" required  style="display:none">
 										</div>
 									</div>
 									<div class="form-group row">
@@ -2393,7 +2403,7 @@ function post($dat){
 
 										<div class="col-md-8">
 
-											<input type="text"  readonly="true" maxlength="26" class="form-control" id="faskes_lama" value="" name="faskes_lama" required  style="display:none"> 
+											<input type="text"  readonly="true" maxlength="26" class="form-control" id="faskes_lama" value="" name="faskes_lama" required  style="display:none">
 
 										</div>
 
@@ -2408,7 +2418,7 @@ function post($dat){
 
 										<div class="col-md-8">
 
-											<input type="text"  readonly="true" maxlength="26" class="form-control" id="kelas_lama" value="" name="kelas_lama" required  style="display:none"> 
+											<input type="text"  readonly="true" maxlength="26" class="form-control" id="kelas_lama" value="" name="kelas_lama" required  style="display:none">
 
 										</div>
 
@@ -2423,7 +2433,7 @@ function post($dat){
 
 										<div class="col-md-8">
 
-											<input type="text"  readonly="true" maxlength="26" class="form-control" id="diagnosa_lama" value="" name="diagnosa_lama" required  style="display:none"> 
+											<input type="text"  readonly="true" maxlength="26" class="form-control" id="diagnosa_lama" value="" name="diagnosa_lama" required  style="display:none">
 
 										</div>
 
@@ -2438,12 +2448,12 @@ function post($dat){
 
 										<div class="col-md-8">
 
-											<input type="text"  readonly="true" maxlength="26" class="form-control" id="poli_lama" value="" name="poli_lama" required  style="display:none"> 
+											<input type="text"  readonly="true" maxlength="26" class="form-control" id="poli_lama" value="" name="poli_lama" required  style="display:none">
 
 										</div>
 
 									</div>
-									
+
 									<div class="form-group row" id ="konten_NoDPJP_lama" style="display:none">
 										<div class="col-md-4">
 											<label for="kelurahan" >Pemberi Surat:</label>
@@ -2476,10 +2486,10 @@ function post($dat){
 														cache: true
 													},
 
-												}).on("change", function (e) { 
+												}).on("change", function (e) {
 													console.log(e);
-													$('#hiddenNoDPJP_lama').val(e.added.id); 
-													$('#hiddenNamaNoDPJP_lama').val(e.added.text); 
+													$('#hiddenNoDPJP_lama').val(e.added.id);
+													$('#hiddenNamaNoDPJP_lama').val(e.added.text);
 													$('#div-cek-error').hide();
 												});
 
@@ -2489,15 +2499,15 @@ function post($dat){
 														$('#NoDPJP_lama').select2('data', {id: '<?php echo post('NoDPJP_lama') ?>', text: '<?php echo post('hiddenNoDPJP_lama'); ?>'});
 												<?php
 													}
-													
+
 													if($this->input->get('kode') != null){
 												?>
 														$('#NoDPJP_lama').select2('data', {id: '<?php echo$this->input->get('kode') ?>', text: '<?php echo $this->input->get('nama') ?>'});
 														$('#hiddenNoDPJP_lama').val('<?php echo $this->input->get('kode') ?>');
 														console.log($('#hiddenNoDPJP_lama').val());
-												<?php 
+												<?php
 													}
-												?> 
+												?>
 											</script>
 										</div>
 									</div>
@@ -2516,7 +2526,7 @@ function post($dat){
 										<div class="col-md-4">
 
 											<a href="javascript: sendSms();">
-												<button type="button" class="btn btn-success " style="border-radius: 10px;"> Daftar &nbsp;<span class="glyphicon glyphicon-edit"> </span> </button> 
+												<button type="button" class="btn btn-success " style="border-radius: 10px;"> Daftar &nbsp;<span class="glyphicon glyphicon-edit"> </span> </button>
 											</a>
 											<script>
 
@@ -2529,12 +2539,12 @@ function post($dat){
 													console.log($('#hiddenNoDPJP_lama').val().length);
 
 													if(( $('#tglReg').val() == tgl_skrg || $('#tglReg').val() == tgl_besok ) && (tgl_input2.getDay() > 0 && tgl_input2.getDay() < 6)){ /* update 2019-03-08*/
-												
+
 														if($('#kelompok').val() !='' && $('#telepon').val() != ''){
 															//pasien bpjs
 															if(kd_bpjs==1){
 															//2019-02-27 (validasi berlaku jika jenis  kunjungan bpjs : episode baru)
-															
+
 																if($('#jenis_kunjungan').val() == 1){
 																	if(  $('#no_rujukan_lama').val() !=''  ){
 																		if($('#hiddenNoDPJP_lama').val().length == 0 ){
@@ -2584,7 +2594,7 @@ function post($dat){
 																			$('#myModal_MessageWarningDataTidakLengkap').modal();
 																		}
 																	}
-																
+
 																}else if($('#jenis_kunjungan').val() == 2){
 																	$.ajax({
 																	   url: '<?php echo base_url()?>/index.php/daftar/sendSms',
@@ -2617,11 +2627,11 @@ function post($dat){
 																		   }
 																	   },
 																	});
-																
+
 																}else{
 																	$('#myModal_MessageWarningDataTidakLengkap').modal();
 																}
-																
+
 															}
 															//pasien umum
 															else{
@@ -2703,7 +2713,7 @@ function post($dat){
 									<div class="form-group row">
 										<div class="col-md-6">
 
-											<input type="text" name="captcha" placeholder="<?php 
+											<input type="text" name="captcha" placeholder="<?php
 
 												echo 'Masukan Kode Verifikasi'
 
@@ -2717,7 +2727,7 @@ function post($dat){
 
 											<span><button type="submit" class="btn btn-success">
 
-												<?php 
+												<?php
 
 												If(isset( $_SESSION['caption_button_lama'])){
 
@@ -2746,15 +2756,15 @@ function post($dat){
 											</span>
 											<!-- <span>&nbsp;<a href="javascript: sendSms();" >Kirim Ulang</a></span> -->
 
-												
+
 
 										</div>
 
-										
+
 
 									</div>
 
-									
+
 
 								</div>
 
@@ -2769,11 +2779,11 @@ function post($dat){
 				</form>
 
 			</div>
-			
+
 			<!-- Modal -->
 		  <div class="modal fade" id="myModal_MessageWarning" role="dialog">
 			<div class="modal-dialog">
-			
+
 			  <!-- Modal content-->
 			  <div class="modal-content">
 				<div class="modal-header">
@@ -2787,13 +2797,13 @@ function post($dat){
 				  <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
 				</div>
 			  </div>
-			  
+
 			</div>
 		  </div>
-		  
+
 		  <div class="modal fade" id="myModal_MessageWarningDataPasien" role="dialog">
 			<div class="modal-dialog">
-			
+
 			  <!-- Modal content-->
 			  <div class="modal-content">
 				<div class="modal-header">
@@ -2807,14 +2817,14 @@ function post($dat){
 				  <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
 				</div>
 			  </div>
-			  
+
 			</div>
 		  </div>
-		  
+
 		   <!-- Modal -->
 		  <div class="modal fade" id="myModal_MessageWarningWaktuDaftar" role="dialog">
 			<div class="modal-dialog">
-			
+
 			  <!-- Modal content-->
 			  <div class="modal-content">
 				<div class="modal-header">
@@ -2828,14 +2838,14 @@ function post($dat){
 				  <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
 				</div>
 			  </div>
-			  
+
 			</div>
 		  </div>
 		</div>
 
 		<div class="modal fade" id="myModal_MessageWarningDataRujukan" role="dialog">
 			<div class="modal-dialog">
-			
+
 			  <!-- Modal content-->
 			  <div class="modal-content">
 				<div class="modal-header">
@@ -2849,13 +2859,13 @@ function post($dat){
 				  <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
 				</div>
 			  </div>
-			  
+
 			</div>
 		  </div>
-		  
+
 		<div class="modal fade" id="myModal_MessageWarningDataTidakLengkap" role="dialog">
 			<div class="modal-dialog">
-			
+
 			  <!-- Modal content-->
 			  <div class="modal-content">
 				<div class="modal-header">
@@ -2869,14 +2879,14 @@ function post($dat){
 				  <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
 				</div>
 			  </div>
-			  
+
 			</div>
 		  </div>
 
 		   <!-- update 2019-02-27-->
 		  <div class="modal fade" id="myModal_MessageInfoKunjunganBaru" role="dialog">
 			<div class="modal-dialog">
-			
+
 			  <!-- Modal content-->
 			  <div class="modal-content">
 				<div class="modal-header">
@@ -2890,13 +2900,13 @@ function post($dat){
 				  <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
 				</div>
 			  </div>
-			  
+
 			</div>
 		  </div>
-		  
+
 		  <div class="modal fade" id="myModal_MessageInfoKunjunganLanjutan" role="dialog">
 			<div class="modal-dialog">
-			
+
 			  <!-- Modal content-->
 			  <div class="modal-content">
 				<div class="modal-header">
@@ -2910,13 +2920,13 @@ function post($dat){
 				  <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
 				</div>
 			  </div>
-			  
+
 			</div>
 		  </div>
 		<!-- end update 2019-02-27-->
 		<div class="modal fade" id="myModal_MessageWarningCekTglBerobat" role="dialog">
 			<div class="modal-dialog">
-			
+
 			  <!-- Modal content-->
 			  <div class="modal-content">
 				<div class="modal-header">
@@ -2930,7 +2940,7 @@ function post($dat){
 				  <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
 				</div>
 			  </div>
-			  
+
 			</div>
 		  </div>
 	</div>
@@ -2944,7 +2954,7 @@ function post($dat){
  <script src="<?php echo base_url()?>vendor/script_birth_date.js"></script>
 <script type="text/javascript">
 
-	
+
 	function cek_no_kartu(){
 
 		var kd_poli=null;
@@ -2954,8 +2964,8 @@ function post($dat){
 		}else if(document.getElementById('rbfaskes2_lama').checked){
 			nilai_faskes = document.getElementById('rbfaskes2_lama').value;
 		}
-			
-			
+
+
 		if($('#no_kartu').val() !='' && $('#no_kartu').val() != ''){
 
 			$.ajax({
@@ -2993,7 +3003,7 @@ function post($dat){
 								console.log(data);
 
 								$('#no_kartu_bpjs').val(data.response_bpjs.resp.response.rujukan.peserta.noKartu); //disini
-								
+
 								$('#no_rujukan_lama').val(data.response_bpjs.resp.response.rujukan.noKunjungan);
 
 								$('#kelas_lama').val(data.response_bpjs.resp.response.rujukan.peserta.hakKelas.keterangan);
@@ -3017,14 +3027,14 @@ function post($dat){
 								kd_poli=data.response_bpjs.resp.response.rujukan.poliRujukan.kode;
 
 								auto_poli_bpjs(kd_poli);
-								
+
 								//2018-11-29
 								$('#hidden_nilai_faskes_lama').val(data.nilai_faskes);
 								$('#tgl_rujukan_lama').val(data.response_bpjs.resp.response.rujukan.tglKunjungan);
 								$('#div-cek-error').hide();
 
 							}else if(status=='201'){
-								
+
 								$('#no_rujukan_lama').val('');
 								$('#tgl_rujukan_lama').val('');
 								$('#faskes_lama').val('');
@@ -3047,7 +3057,7 @@ function post($dat){
 
 	}
 
-	
+
 
 </script>
 
@@ -3099,13 +3109,13 @@ function auto_poli_bpjs(kd_poli){
 
 
 
-													                 
+
 
 		});
 
 }
 function hanyaAngka(evt) {
-	
+
   var charCode = (evt.which) ? evt.which : event.keyCode
   if (charCode > 31 && (charCode < 48 || charCode > 57))
   return false;
@@ -3161,12 +3171,12 @@ function formatnomedrec(noMedrec){
 			var getnewmedrec = '';
 		}
 	}
-	
+
 	return getnewmedrec;
-}											
+}
 
 function cekJam(){
-		// kunjungan pada jam 06:00 s/d 21:00. 
+		// kunjungan pada jam 06:00 s/d 21:00.
 		var date = new Date();
         var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
         var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
@@ -3182,22 +3192,22 @@ function cekJam(){
 		}else{
 			$('#myModal_MessageWarningWaktuDaftar').modal();
 		}
-		
+
 	}
 </script>
 <?php
 			//UPDATE 2019-02-27
 			if($ULANG == 'TRUE'){
-			
+
 				if(post('kelompok') == 52 || post('kelompok') == 53){
-					$param_medrec = str_replace('-', '', post('txtMedrec'));  
+					$param_medrec = str_replace('-', '', post('txtMedrec'));
 		?>
 					<script>
-						$('#txtMedrec').val('<?php echo $param_medrec ;?>'); 
+						$('#txtMedrec').val('<?php echo $param_medrec ;?>');
 						document.getElementById("form_jenis_kunjungan").style.display='block';
 						$('#jenis_kunjungan').select2('data', {id: '<?php echo post('jenis_kunjungan') ?>', text: '<?php echo post('hidden_jenis_kunjungan'); ?>'});
 		<?php				if(post('jenis_kunjungan') == 1){ ?>
-		
+
 							 document.getElementById("AreaBpjs").style.display='block';
 							 document.getElementById("lbl_no_kartu").style.display='block';
 							 document.getElementById("no_kartu").style.display='block';
@@ -3216,44 +3226,43 @@ function cekJam(){
 							 document.getElementById("lbl_tgl_rujukan_lama").style.display='block';
 							 document.getElementById("tgl_rujukan_lama").style.display='block';
 							 document.getElementById("konten_NoDPJP_lama").style.display='block';
-							 
-							
-							$('#no_kartu').val('<?php echo post('no_kartu'); ?>'); 
-							$('#no_kartu_bpjs').val('<?php echo post('no_kartu_bpjs'); ?>'); 
-							$('#no_rujukan_lama').val('<?php echo post('no_rujukan_lama'); ?>'); 
-							$('#tgl_rujukan_lama').val('<?php echo post('tgl_rujukan_lama') ;?>'); 
-							$('#faskes_lama').val('<?php echo post('faskes_lama'); ?>'); 
-							$('#kelas_lama').val('<?php echo post('kelas_lama'); ?>'); 
-							$('#diagnosa_lama').val('<?php echo post('diagnosa_lama') ;?>'); 
-							$('#NoDPJP_lama').val('<?php echo post('NoDPJP_lama'); ?>'); 
-							$('#poli_lama').val('<?php echo post('poli_lama'); ?>'); 
+
+
+							$('#no_kartu').val('<?php echo post('no_kartu'); ?>');
+							$('#no_kartu_bpjs').val('<?php echo post('no_kartu_bpjs'); ?>');
+							$('#no_rujukan_lama').val('<?php echo post('no_rujukan_lama'); ?>');
+							$('#tgl_rujukan_lama').val('<?php echo post('tgl_rujukan_lama') ;?>');
+							$('#faskes_lama').val('<?php echo post('faskes_lama'); ?>');
+							$('#kelas_lama').val('<?php echo post('kelas_lama'); ?>');
+							$('#diagnosa_lama').val('<?php echo post('diagnosa_lama') ;?>');
+							$('#NoDPJP_lama').val('<?php echo post('NoDPJP_lama'); ?>');
+							$('#poli_lama').val('<?php echo post('poli_lama'); ?>');
 							$('#NoDPJP_lama').select2('data', {id: '<?php echo post('hiddenNoDPJP_lama'); ?>', text: '<?php echo post('hiddenNamaNoDPJP_lama'); ?>'});
 
-							$('#hidden_kd_rujukan_lama').val('<?php echo post('hidden_kd_rujukan_lama'); ?>'); 
-							$('#hidden_kd_kelas_lama').val('<?php echo post('hidden_kd_kelas_lama'); ?>'); 
-							$('#hidden_kd_poli_lama').val('<?php echo post('hidden_kd_poli_lama'); ?>'); 
-							$('#hidden_kd_diagnosa_lama').val('<?php echo post('hidden_kd_diagnosa_lama'); ?>'); 
-							$('#hidden_nilai_faskes_lama').val('<?php echo post('hidden_nilai_faskes_lama'); ?>'); 
-							$('#hiddenNoDPJP_lama').val('<?php echo post('hiddenNoDPJP_lama'); ?>'); 
-															
-							// ISI NILAI ELEMENNYA 
+							$('#hidden_kd_rujukan_lama').val('<?php echo post('hidden_kd_rujukan_lama'); ?>');
+							$('#hidden_kd_kelas_lama').val('<?php echo post('hidden_kd_kelas_lama'); ?>');
+							$('#hidden_kd_poli_lama').val('<?php echo post('hidden_kd_poli_lama'); ?>');
+							$('#hidden_kd_diagnosa_lama').val('<?php echo post('hidden_kd_diagnosa_lama'); ?>');
+							$('#hidden_nilai_faskes_lama').val('<?php echo post('hidden_nilai_faskes_lama'); ?>');
+							$('#hiddenNoDPJP_lama').val('<?php echo post('hiddenNoDPJP_lama'); ?>');
+
+							// ISI NILAI ELEMENNYA
 							if($('#hidden_nilai_faskes_lama').val() == 1 || $('#hidden_nilai_faskes_lama').val() == '1'){
 								$('#rbfaskes1_lama').prop('checked',true);
 							}else{
 								$('#rbfaskes2_lama').prop('checked',true);
 							}
 			<?php		} ?>
-						
+
 					</script>
 		<?php	}else{
-					$param_medrec = str_replace('-', '', post('txtMedrec'));  
+					$param_medrec = str_replace('-', '', post('txtMedrec'));
 		?>
 					<script>
-						$('#txtMedrec').val('<?php echo $param_medrec ;?>'); 
+						$('#txtMedrec').val('<?php echo $param_medrec ;?>');
 					</script>
 		<?php
 				}
 			}
 		//END UPDATE 2019-02-27
 		?>
-
