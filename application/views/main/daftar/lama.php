@@ -1631,7 +1631,7 @@ function post($dat){
 														document.getElementById("konten_NoDPJP_lama").style.display='block';
 														document.getElementById('group_form_lanjutan').style.display = 'none';
 													}else{
-														 $('#myModal_MessageInfoKunjunganLanjutan').modal();
+														$('#myModal_MessageInfoKunjunganLanjutan').modal();
 														/*document.getElementById("lbl_no_rujukan_lama").style.display='none';
 														document.getElementById("no_rujukan_lama").style.display='none';
 														document.getElementById("lbl_kelas_lama").style.display='none';
@@ -1651,11 +1651,11 @@ function post($dat){
 														document.getElementById("btn_cek_no_kartu_lama").style.display = 'none';
 														var params = {
 															criteria : "kd_pasien ='"+$('#txtMedrec').val()+"'",
-															order : "tgl_masuk",
-															asc : false,
-															limit : 1,
-															table : "sjp_kunjungan",
-															select : "no_sjp, no_dpjp, TO_CHAR(tgl_masuk :: DATE, 'YYYY-mm-dd') as tgl_masuk",
+															order    : "tgl_masuk",
+															asc      : false,
+															limit    : 1,
+															table    : "sjp_kunjungan",
+															select   : "no_sjp, no_dpjp, TO_CHAR(tgl_masuk :: DATE, 'YYYY-mm-dd') as tgl_masuk",
 														};
 														$.ajax({
 															type: "POST",
@@ -1682,11 +1682,13 @@ function post($dat){
 														document.getElementById("lbl_tgl_rujukan_lama").style.display  = 'block';
 														document.getElementById("tgl_rujukan_lama").style.display      = 'block';
 														document.getElementById("konten_NoDPJP_lama").style.display    = 'block';
-														$('#txt_no_sep').val(obj_sjp[0].no_sjp);
-														$('#txt_tgl_sep').val(obj_sjp[0].tgl_masuk);
-														$('#txt_no_dpjp').val(obj_sjp[0].no_dpjp);
 
-														$.ajax({
+														if (obj_sjp[0].no_sjp != 'null') {
+															$('#txt_no_sep').val(obj_sjp[0].no_sjp);
+															$('#txt_tgl_sep').val(obj_sjp[0].tgl_masuk);
+															$('#txt_no_dpjp').val(obj_sjp[0].no_dpjp);
+
+															$.ajax({
 															url: '<?php echo base_url()?>/index.php/daftar/get_sep',
 															data: {
 																sep: obj_sjp[0].no_sjp,
@@ -1734,6 +1736,7 @@ function post($dat){
 																}
 															}
 														});
+														}
 													}else{
 														// DISINI
 														$("#poliklinik").select2("val", "");
