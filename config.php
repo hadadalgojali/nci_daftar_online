@@ -4,5 +4,4 @@
 	$iPassword = ''; 
 	$iDb       = 'nci_online'; 
 	$iPort     = '3308'; 
-	// TEST
 ?>
