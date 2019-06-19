@@ -3,5 +3,5 @@
 	$iUserName = 'root'; 
 	$iPassword = ''; 
 	$iDb       = 'nci_online'; 
-	$iPort     = '3306'; 
+	$iPort     = '3308'; 
 ?>
