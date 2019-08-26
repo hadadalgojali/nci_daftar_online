@@ -184,6 +184,10 @@ class Visit {
 	 */
 	
 	protected $kd_dpjp;
+	/**
+	* @Column(name="tgl_daftar", type="date", nullable=true)
+	*/
+	protected $tgl_daftar;
 	
 	/**
 	 * @Column(name="jenis_kunjungan_bpjs", type="integer", nullable=true)
@@ -488,6 +492,14 @@ class Visit {
 	}
 	public function getjenis_kunjungan_bpjs() {
 		return $this->jenis_kunjungan_bpjs;
+	}
+
+	public function settgl_daftar($tgl_daftar) {
+		$this->tgl_daftar = $tgl_daftar;
+		return $this;
+	}
+	public function gettgl_daftar() {
+		return $this->tgl_daftar;
 	}
 	
 }

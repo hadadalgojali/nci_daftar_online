@@ -1,7 +1,7 @@
 <?php 
-	$iHostName = 'localhost'; 
-	$iUserName = 'root'; 
-	$iPassword = ''; 
-	$iDb       = 'nci_online'; 
-	$iPort     = '3308'; 
+	$iHostName='localhost'; 
+	$iUserName='root'; 
+	$iPassword='ncimedis'; 
+	$iDb='rssm_online'; 
+	$iPort='3306'; 
 ?>

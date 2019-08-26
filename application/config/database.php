@@ -48,14 +48,14 @@ $db['default'] = array(
 // );
 
 $db['SIM'] = array(
-		'hostname' => '192.168.0.138',
+		'hostname' => '192.168.1.36',
 		'username' => 'postgres',
-		'password' => '123456',
-		'database' => 'medismart_madiun',
+		'password' => 'ipderssm',
+		'database' => 'medismart',
 		'dbdriver' => 'postgre',
 		'dbprefix' => '',
 		'pconnect' => TRUE,
-		'db_debug' => TRUE,
+		'db_debug' => FALSE,
 		'cache_on' => FALSE,
 		'cachedir' => '',
 		'char_set' => 'utf8',
@@ -68,42 +68,41 @@ $db['SIM'] = array(
 		'save_queries' => TRUE,
 		'port'=>'5432'
 );
-
-// $db['other']['hostname'] 	 = "192.168.0.138";
-// $db['other']['port'] 		   = "5432";
-// $db['other']['username'] 	 = "postgres";
-// $db['other']['password'] 	 = "123456";
-// $db['other']['database'] 	 = "medismart_madiun";
-// $db['other']['dbdriver'] 	 = "postgre";
-// $db['other']['dbprefix'] 	 = "";
-// $db['other']['pconnect'] 	 = TRUE;
-// $db['other']['db_debug'] 	 = TRUE;
-// $db['other']['cache_on'] 	 = FALSE;
-// $db['other']['cachedir'] 	 = "";
-// $db['other']['char_set'] 	 = "utf8";
-// $db['other']['dbcollat'] 	 = "utf8_general_ci";
-
-$db['other'] = array(
-		'hostname' => '192.168.0.138',
-		'username' => 'postgres',
-		'password' => '123456',
-		'database' => 'medismart_madiun',
-		'dbdriver' => 'postgre',
-		'dbprefix' => '',
-		'pconnect' => TRUE,
-		'db_debug' => TRUE,
-		'cache_on' => FALSE,
-		'cachedir' => '',
-		'char_set' => 'utf8',
-		'dbcollat' => 'utf8_general_ci',
-		'swap_pre' => '',
-		'encrypt' => FALSE,
-		'compress' => FALSE,
-		'stricton' => FALSE,
-		'failover' => array(),
-		'save_queries' => TRUE,
-		'port'=>'5432'
-);
+/*
+	'dsn'	=> '',
+	'hostname' => $hostname,
+	'username' => $username,
+	'password' => $password,
+	'database' => $database,
+	// 'dbdriver' => 'mysqli',
+	'dbdriver' => $driver,
+	'dbprefix' => '',
+	// 'port' => '5432',
+	'pconnect' => FALSE,
+	'db_debug' => FALSE,
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE*/
+$db['other']['hostname'] = "192.168.1.36";
+$db['other']['port'] = "5432";
+$db['other']['username'] = "postgres";
+$db['other']['password'] = "ipderssm";
+$db['other']['database'] = "medismart";
+$db['other']['dbdriver'] = "postgre";
+$db['other']['dbprefix'] = "";
+$db['other']['pconnect'] = TRUE;
+$db['other']['db_debug'] = FALSE;
+$db['other']['cache_on'] = FALSE;
+$db['other']['cachedir'] = "";
+$db['other']['char_set'] = "utf8";
+$db['other']['dbcollat'] = "utf8_general_ci";
 
 // $db['other'] = array(
 // 	'hostname' => "localhost",
@@ -126,3 +125,5 @@ $db['other'] = array(
 // 	'save_queries' => TRUE,
 // 	'port'=>"5432"
 // );
+
+

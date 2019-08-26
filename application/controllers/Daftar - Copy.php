@@ -32,15 +32,15 @@ class Daftar extends CI_Controller {
 			fclose($handle);
 			$printer='\\\\NUANSA\\EPSON310_NUANSA';
 			shell_exec("lpr -P ".$printer." -r ".$file);
-			
-			
-			$printer = printer_open($printer);  
-				printer_set_option($printer, PRINTER_MODE, "RAW"); 
-				//printer_start_doc($printer, "Tes Printer"); 
-				//printer_start_page($printer); 
-				printer_write($printer, $Data);  
-				//printer_end_page($printer); 
-				//printer_end_doc($printer); 		 
+
+
+			$printer = printer_open($printer);
+				printer_set_option($printer, PRINTER_MODE, "RAW");
+				//printer_start_doc($printer, "Tes Printer");
+				//printer_start_page($printer);
+				printer_write($printer, $Data);
+				//printer_end_page($printer);
+				//printer_end_doc($printer);
 				printer_close($printer);
 	}
 	public function getKunjungan(){
@@ -57,8 +57,8 @@ class Daftar extends CI_Controller {
 		}
 		// $tgl=new DateTime($tgl);
 		$res=$common->queryResult("SELECT M.no_pendaftaran,M1.patient_code AS kd_pasien,
-			unit_code AS kd_unit,M3.customer_code AS kd_customer,M.keluhan,M1.name AS nama,M2.unit_name AS nama_unit,M.status FROM rs_visit M 
-		INNER JOIN rs_patient M1 ON M1.patient_id=M.patient_id 
+			unit_code AS kd_unit,M3.customer_code AS kd_customer,M.keluhan,M1.name AS nama,M2.unit_name AS nama_unit,M.status FROM rs_visit M
+		INNER JOIN rs_patient M1 ON M1.patient_id=M.patient_id
 		INNER JOIN rs_unit M2 ON M2.unit_id=M.unit_id
 		INNER JOIN rs_customer M3 ON M3.customer_id=M.customer_id
 			WHERE M.entry_date='".$tgl."' ".$criteria." order by M.status ASC");
@@ -93,7 +93,7 @@ class Daftar extends CI_Controller {
 			// $this->db->insert('rs_patient',$arr);
 		}
 		$this->jsonresult->end();
-	}	
+	}
 	public function index(){
 		$this->load->helper('captcha');
 		$religion=$this->common->getParams('RELIGION');
@@ -110,7 +110,7 @@ class Daftar extends CI_Controller {
 		$edu=$this->common->getParams('EDUCATION');
 		$this->load->view('main',array('p'=>'HALAMAN_UTAMA','RELIGION'=>$religion,'BLOD'=>$blod,'EDU'=>$edu,'GELAR'=>$gelar));
 
-	
+
 	}
 	public function lama(){
 		$this->load->helper('captcha');
@@ -128,7 +128,7 @@ class Daftar extends CI_Controller {
 		$edu=$this->common->getParams('EDUCATION');
 		$this->load->view('main',array('p'=>'DAFTAR_BARU','RELIGION'=>$religion,'BLOD'=>$blod,'EDU'=>$edu,'GELAR'=>$gelar));
 	}
-	
+
 	public function cetak(){
 		include "application/third_party/qr_code/qrlib.php";
 		$common=$this->common;
@@ -190,7 +190,7 @@ class Daftar extends CI_Controller {
 						<td width="10">:</td>
 						<td>'.$visit->getUnit()->getUnitName().'</td>
 					</tr>
-					
+
 					<tr>
 						<td width="100">
 							 Tanggal Berobat
@@ -198,7 +198,7 @@ class Daftar extends CI_Controller {
 						<td width="10">:</td>
 						<td>'.$visit->getEntryDate()->format('d M Y').'</td>
 					</tr>
-					
+
 					<tr>
 						<td colspan="3">&nbsp;</td>
 					</tr>
@@ -212,7 +212,7 @@ class Daftar extends CI_Controller {
 		}else
 			echo 'Data Not Found';
 	}
-	
+
 	public function getCountry(){
 		$common=$this->common;
 		$text=$this->input->get('text');
@@ -232,7 +232,7 @@ class Daftar extends CI_Controller {
 	public function getPatient(){
 		$em = $this->doctrine->em;
 		$text=$this->input->get('id');
-		$res=$em->createQuery("SELECT u FROM Entity\content\Patient u 
+		$res=$em->createQuery("SELECT u FROM Entity\content\Patient u
 		WHERE u.id=".$text)->getSingleResult();
 		$o=array();
 		$o['gelar']=$res->getTitle();
@@ -331,7 +331,7 @@ class Daftar extends CI_Controller {
 				$o['kelurahanTemp']=$res->getKelurahanTemp()->getValue();
 			}else{
 				$o['kelurahanTemp']='';
-			}			
+			}
 		}
 		$o['postalCode']=$res->getPostalCode();
 		$this->jsonresult->setData($o)->end();
@@ -360,14 +360,14 @@ class Daftar extends CI_Controller {
 			// $criteria.=" AND no_ktp LIKE'%".$ktp."%' ";
 		// }
 		$res=$common->queryResult("
-									SELECT p.patient_id,p.patient_code,upper(p.name) as name 
-									FROM rs_patient p  
-									WHERE 
+									SELECT p.patient_id,p.patient_code,upper(p.name) as name
+									FROM rs_patient p
+									WHERE
 										(
 											UPPER(p.patient_code) LIKE UPPER('%".$text."%') OR
 											UPPER(name) LIKE UPPER('%".$text."%')
-										) ".$criteria." 
-									ORDER BY p.patient_code ASC 
+										) ".$criteria."
+									ORDER BY p.patient_code ASC
 									LIMIT 10
 								");
 		$arr=array();
@@ -390,7 +390,7 @@ class Daftar extends CI_Controller {
 		}
 		$this->jsonresult->setData($arr)->end();
 	}
-	
+
 	/************************************************************/
 	/********************PROSES SAVING PASIEN BARU **************/
 	/************************************************************/
@@ -403,7 +403,7 @@ class Daftar extends CI_Controller {
 		$blod=$this->common->getParams('BLOD');
 		$edu=$this->common->getParams('EDUCATION');
 		if($this->input->post('captcha')!=null){
-			 if($this->input->post('captcha')!=null){	
+			 if($this->input->post('captcha')!=null){
 				$error=false;
 				$erorMessage='';
 				if($this->input->post('negara') ==''){
@@ -438,7 +438,7 @@ class Daftar extends CI_Controller {
 					$erorMessage.='&nbsp; &bull; Harap Pilih Poliklinik.<br>';
 					$error=true;
 				}
-				if($error==false){				
+				if($error==false){
 					$tglReg=new DateTime($this->input->post('tglReg'));
 					$now=new DateTime();
 					if(strtotime($tglReg->format('Y-m-d'))>strtotime($now->format('Y-m-d'))){
@@ -469,21 +469,21 @@ class Daftar extends CI_Controller {
 						}
 
 
-						$jadwal=$common->createQuery("SELECT u FROM Entity\content\JadwalPoli u 
+						$jadwal=$common->createQuery("SELECT u FROM Entity\content\JadwalPoli u
 							INNER JOIN u.unit A
 							INNER JOIN u.dokter B
 							INNER JOIN u.hari C
-							WHERE 
-							A.id=".$this->input->post('poliklinik')." AND 
-							C.optionCode='".$codeHari."' AND 
+							WHERE
+							A.id=".$this->input->post('poliklinik')." AND
+							C.optionCode='".$codeHari."' AND
 							B.id=".$this->input->post('dokter')."
 							ORDER BY u.jam ASC")->getResult();
-						$ObjectAntrian=$common->createQuery("SELECT u FROM Entity\content\Antrian u 
+						$ObjectAntrian=$common->createQuery("SELECT u FROM Entity\content\Antrian u
 							INNER JOIN u.unit A
 							INNER JOIN u.dokter B
-							WHERE 
-							u.tglMasuk='".$tglReg->format('Y-m-d')."' AND 
-							A.id=".$this->input->post('poliklinik')." AND 
+							WHERE
+							u.tglMasuk='".$tglReg->format('Y-m-d')."' AND
+							A.id=".$this->input->post('poliklinik')." AND
 							B.id=".$this->input->post('dokter'));
 						if($jadwal){
 							$jumlah=0;
@@ -551,7 +551,7 @@ class Daftar extends CI_Controller {
 									->setKelurahanTemp($kelurahanTemp)
 									->setPostalCode($this->input->post('kdpos'))
 									->save();
-								
+
 								$poliklinik=$common->find ( 'Unit',$this->input->post('poliklinik') );
 								$dokter=$common->find ( 'Employee', $this->input->post('dokter') );
 								if($ObjectAntrian->getResult()){
@@ -569,11 +569,11 @@ class Daftar extends CI_Controller {
 								$visit=new Entity\content\Visit();
 								$seq=$this->common->getNextSequence('DAFTAR_ONLINE',$common->getSystemProperty('DEFAULT_TENANT', null)->getPropertyValue());
 								$codeReg=$seq['val'];
-								
+
 								if($_POST['tgl_rujukan_baru'] == ''){
 									$_POST['tgl_rujukan_baru'] = $now->format('Y-m-d');
-								} 
-								
+								}
+
 								$visit->setUnit($poliklinik)
 									->setEntryDate(new \DateTime($this->input->post('tglReg')))
 									->setEntrySeq(1)
@@ -607,7 +607,7 @@ class Daftar extends CI_Controller {
 								if($ObjectAntrian->getResult()){
 									$last=$ObjectAntrian->getSingleResult()->getAntrian()-1;
 								}
-								if(strtotime($tglReg->format('Y-m-d'))>strtotime($now->format('Y-m-d')) || 
+								if(strtotime($tglReg->format('Y-m-d'))>strtotime($now->format('Y-m-d')) ||
 									(strtotime($tglReg->format('Y-m-d'))==strtotime($now->format('Y-m-d')) && strtotime($now->format('H:i:s'))<strtotime($jadwal[0]->getJam()->format('H:i:s')))){
 									for($i=0,$iLen=count($jadwal); $i<$iLen ; $i++){
 										if($last<$jadwal[$i]->getMaxAntrian()){
@@ -617,7 +617,7 @@ class Daftar extends CI_Controller {
 										}else{
 											$last-=$jadwal[$i]->getMaxAntrian();
 										}
-									}	
+									}
 								}else{
 									if(strtotime($jadwal[0]->getJam()->format('H:i:s'))<strtotime($now->format('H:i:s'))){
 										$jam=date_create($now->format('H:i:s'));
@@ -705,30 +705,34 @@ class Daftar extends CI_Controller {
 				curl_setopt($curlHandle, CURLOPT_TIMEOUT,30);
 				curl_setopt($curlHandle, CURLOPT_POST, 1);
 				$results = curl_exec($curlHandle);
-				curl_close($curlHandle); 
+				curl_close($curlHandle);
 				$msg='';
 				$msg.='Silahkan Cek inbox pada handphone anda dan masukan kode verifikasi'.'<br>';
 				$this->session->set('SUCCESS',$msg);
 				$this->load->view('main',array('p'=>'DAFTAR_BARU','RELIGION'=>$religion,'BLOD'=>$blod,'EDU'=>$edu));
-		
+
 			}else{
 				$erorMessage='Centang Kirim Sms untuk mengirim verifikasi '.'<br>';
 				$erorMessage.='jangan isi verifikasi sebelum mendapat kode verifikasi '.'<br>';
 				$this->session->set('ERROR',$erorMessage);
 				$this->load->view('main',array('p'=>'DAFTAR_BARU','RELIGION'=>$religion,'BLOD'=>$blod,'EDU'=>$edu));
 			}
-			
-		} 
+
+		}
 	}
 }
 	public function saveLama(){
 		date_default_timezone_set('Asia/Jakarta');
 		//$this->load->helper('captcha');
-		$common=$this->common;
-		$religion=$this->common->getParams('RELIGION');
-		$blod=$this->common->getParams('BLOD');
-		$edu=$this->common->getParams('EDUCATION');
+		$common     = $this->common;
+		$religion   = $this->common->getParams('RELIGION');
+		$blod       = $this->common->getParams('BLOD');
+		$edu        = $this->common->getParams('EDUCATION');
 		$captcha    = $this->input->post('captcha');
+		// echo $captcha."<br>";
+		// echo strlen($captcha);
+		// die;
+
 		if(strlen($captcha) > 0){
 			if(strtolower($_SESSION['random_verif_lama'])!=strtolower($this->input->post('captcha'))){
 				$this->session->set('ERROR','Isi Verifikasi dengan Benar.');
@@ -738,11 +742,11 @@ class Daftar extends CI_Controller {
 			}else{
 				$error=false;
 				$erorMessage='';
-				
+
 				//START UPDATE 2019-02-27
 				//validasi untuk pasien bpjs jika dta rujukan tidak lengkap
 				if ($this->input->post('kelompok') == '52' || $this->input->post('kelompok') == '53'){
-					
+
 					if($this->input->post('jenis_kunjungan') == 1){ //episode baru validasi parameter rujukan
 						if(	$this->input->post('no_kartu_bpjs') == '' || $this->input->post('no_rujukan_lama') == '' ||
 							$this->input->post('hidden_kd_rujukan_lama') == '' || $this->input->post('faskes_lama') == '' ||
@@ -757,7 +761,7 @@ class Daftar extends CI_Controller {
 				}
 				//END UPDATE 2019-02-27
 
-				
+
 				if($this->input->post('kelompok') ==''){
 					$erorMessage.='&nbsp; &bull; Harap Pilih Kelompok Pasien.<br>';
 					$error=true;
@@ -797,19 +801,20 @@ class Daftar extends CI_Controller {
 					$erorMessage.='&nbsp; &bull; Tanggal berobat hanya bisa dilakukan besok atau hari ini sampai dengan pukul 13.30 ! . <br>';
 					$error=true;
 				}
-				
+
 				//END UPDATE 2019-03-05
 
+				// UPDATE 2019-05-20
 				$this->db->query("UPDATE rs_patient SET phone_number = '".$this->input->post('telepon')."' WHERE patient_id = '".$this->input->post('rm')."'");
-				
-				if($error==false){				
+
+				if($error==false){
 					$tglReg=new DateTime($this->input->post('tglReg'));
 					$now=new DateTime();
 					//$now->modify('+1 day'); //NANTI AKTIFKAN LAGI
 					//$tglReg = new DateTime($now->format('Y-m-d'));
 					//echo $tglReg->format('Y-m-d');
 					//die();
-					
+
 					//if(strtotime($tglReg->format('Y-m-d'))>strtotime($now->format('Y-m-d'))){
 						$em = $this->doctrine->em;
 						$codeHari='';
@@ -836,21 +841,21 @@ class Daftar extends CI_Controller {
 							$codeHari='DAY_7';
 							$namaHari='Minggu';
 						}
-						$jadwal=$em->createQuery("SELECT u FROM Entity\content\JadwalPoli u 
+						$jadwal=$em->createQuery("SELECT u FROM Entity\content\JadwalPoli u
 							INNER JOIN u.unit A
 							INNER JOIN u.dokter B
 							INNER JOIN u.hari C
-							WHERE 
-							A.id=".$this->input->post('poliklinik')." AND 
-							C.optionCode='".$codeHari."' AND 
+							WHERE
+							A.id=".$this->input->post('poliklinik')." AND
+							C.optionCode='".$codeHari."' AND
 							B.id=45
 							ORDER BY u.jam ASC")->getResult();
-						$ObjectAntrian=$em->createQuery("SELECT u FROM Entity\content\Antrian u 
+						$ObjectAntrian=$em->createQuery("SELECT u FROM Entity\content\Antrian u
 							INNER JOIN u.unit A
 							INNER JOIN u.dokter B
-							WHERE 
-							u.tglMasuk='".$tglReg->format('Y-m-d')."' AND 
-							A.id=".$this->input->post('poliklinik')." AND 
+							WHERE
+							u.tglMasuk='".$tglReg->format('Y-m-d')."' AND
+							A.id=".$this->input->post('poliklinik')." AND
 							B.id=45");
 						if($jadwal){
 							$jumlah=0;
@@ -966,20 +971,20 @@ class Daftar extends CI_Controller {
 										->setAntrian($antri)
 										->save();
 								}
-								
-								$visit=$em->createQuery("SELECT u FROM Entity\content\Visit u 
+
+								$visit=$em->createQuery("SELECT u FROM Entity\content\Visit u
 									INNER JOIN u.unit A
 									INNER JOIN u.patient C
-									WHERE 
-									u.entryDate='".$tglReg->format('Y-m-d')."' AND 
-									A.id=".$this->input->post('poliklinik')." AND 
-									C.id=".$patient->getId()." 
+									WHERE
+									u.entryDate='".$tglReg->format('Y-m-d')."' AND
+									A.id=".$this->input->post('poliklinik')." AND
+									C.id=".$patient->getId()."
 									ORDER BY u.entrySeq DESC
 									")->setMaxResults(1);
-								
+
 								if($_POST['tgl_rujukan_lama'] == ''){
 									$_POST['tgl_rujukan_lama'] = $now->format('Y-m-d');
-								} 
+								}
 								if($visit->getResult())
 								{
 									$obj=$visit->getSingleResult();
@@ -992,7 +997,7 @@ class Daftar extends CI_Controller {
 // 										->update();
 									$codeReg = $obj->getNomorPendaftaran();
 									/*$visit=new Entity\content\Visit();
-									
+
 									$visit->setUnit($poliklinik)
 										->setEntryDate(new \DateTime($tglReg->format('Y-m-d')))
 										->setEntrySeq($entrySeq)
@@ -1019,8 +1024,6 @@ class Daftar extends CI_Controller {
 										->setkdDiagnosa($this->input->post('hidden_kd_diagnosa_lama'))
 										->setkdFaskes($this->input->post('hidden_nilai_faskes_lama'))
 										->setkd_dpjp($this->input->post('hiddenNoDPJP_lama'))
-										// ->settgl_daftar(new \DateTime($tglReg->format('Y-m-d')))
-										->settgl_daftar(new \DateTime(date('Y-m-d')))
 										->settglRujukan(new \DateTime($_POST['tgl_rujukan_lama']))
 										->setjenis_kunjungan_bpjs($this->input->post('jenis_kunjungan')) //2019-02-27
 										->save();*/
@@ -1052,18 +1055,16 @@ class Daftar extends CI_Controller {
 										->setkdFaskes($this->input->post('hidden_nilai_faskes_lama'))
 										->setkd_dpjp($this->input->post('hiddenNoDPJP_lama'))
 										->settglRujukan(new \DateTime($_POST['tgl_rujukan_lama']))
-										// ->settgl_daftar(new \DateTime($tglReg->format('Y-m-d')))
-										->settgl_daftar(new \DateTime(date('Y-m-d')))
 										->setjenis_kunjungan_bpjs($this->input->post('jenis_kunjungan')) //2019-02-27
 										->save();
-								}	
+								}
 								$this->common->nextSequence('DAFTAR_ONLINE',$common->getSystemProperty('DEFAULT_TENANT', null)->getPropertyValue());
 								$jam=null;
 								$last=0;
 								if($ObjectAntrian->getResult()){
 									$last=$ObjectAntrian->getSingleResult()->getAntrian()-1;
 								}
-								if(strtotime($tglReg->format('Y-m-d'))>strtotime($now->format('Y-m-d')) || 
+								if(strtotime($tglReg->format('Y-m-d'))>strtotime($now->format('Y-m-d')) ||
 									(strtotime($tglReg->format('Y-m-d'))==strtotime($now->format('Y-m-d')) && strtotime($now->format('H:i:s'))<strtotime($jadwal[0]->getJam()->format('H:i:s')))){
 									for($i=0,$iLen=count($jadwal); $i<$iLen ; $i++){
 										if($last<$jadwal[$i]->getMaxAntrian()){
@@ -1073,7 +1074,7 @@ class Daftar extends CI_Controller {
 										}else{
 											$last-=$jadwal[$i]->getMaxAntrian();
 										}
-									}	
+									}
 								}else{
 									if(strtotime($jadwal[0]->getJam()->format('H:i:s'))<strtotime($now->format('H:i:s'))){
 										$jam=date_create($now->format('H:i:s'));
@@ -1164,7 +1165,7 @@ class Daftar extends CI_Controller {
 				curl_setopt($curlHandle, CURLOPT_TIMEOUT,30);
 				curl_setopt($curlHandle, CURLOPT_POST, 1);
 				$results = curl_exec($curlHandle);
-				curl_close($curlHandle); 
+				curl_close($curlHandle);
 				$msg='';
 				$msg.='Silahkan Cek inbox pada handphone anda dan masukan kode verifikasi'.'<br>';
 				$this->session->set('SUCCESS',$msg);
@@ -1176,7 +1177,6 @@ class Daftar extends CI_Controller {
 				$this->load->view('main',array('p'=>'DAFTAR_LAMA','RELIGION'=>$religion,'BLOD'=>$blod,'EDU'=>$edu));
 			}*/
 			//header('Location:'.base_url().'daftar/lama');
-			
 			$this->session->set('ERROR','Isi Verifikasi dengan Benar.');
 			//$this->load->view('main',array('p'=>'DAFTAR_LAMA','RELIGION'=>$religion,'BLOD'=>$blod,'EDU'=>$edu));
 			$this->load->view('main',array('p'=>'DAFTAR_LAMA','RELIGION'=>$religion,'BLOD'=>$blod,'EDU'=>$edu,'ULANG' => 'TRUE'));
@@ -1199,17 +1199,17 @@ class Daftar extends CI_Controller {
 		$gbr = imagecreate(100, 50);
 		imagecolorallocate($gbr, 0, 0, 0);
 		$color = imagecolorallocate($gbr, 253, 252, 252);
-		$font = "vendor/OpenSans-Light.ttf"; 
+		$font = "vendor/OpenSans-Light.ttf";
 		$ukuran_font = 20;
 		$posisi = 32;
 		$angka = $this->uri->segment('3');
 		for($i=0;$i<=5;$i++) {
 			$kemiringan= rand(20, 20);
-			imagettftext($gbr, $ukuran_font, $kemiringan, 8+15*$i, $posisi, $color, $font, $angka[$i]);	
+			imagettftext($gbr, $ukuran_font, $kemiringan, 8+15*$i, $posisi, $color, $font, $angka[$i]);
 		}
-		//untuk membuat gambar 
-		imagepng($gbr); 
-		imagedestroy($gbr);	
+		//untuk membuat gambar
+		imagepng($gbr);
+		imagedestroy($gbr);
 	}
 
 	public function sendSms_verifikasizenzifa(){
@@ -1236,7 +1236,7 @@ class Daftar extends CI_Controller {
 		curl_setopt($curlHandle, CURLOPT_TIMEOUT,30);
 		curl_setopt($curlHandle, CURLOPT_POST, 1);
 		$results = curl_exec($curlHandle);
-		curl_close($curlHandle); 
+		curl_close($curlHandle);
 		$msg='';
 		$msg.='Silahkan Cek inbox pada handphone anda dan masukan kode verifikasi'.'<br>';
 		$this->session->set('SUCCESS',$msg);
@@ -1248,7 +1248,7 @@ class Daftar extends CI_Controller {
 		$text=$this->input->get('text');
 		$parent=$this->input->get('country');
 		if(trim($parent) != ''){
-			$res=$common->queryResult("SELECT province_id,province FROM area_province WHERE UPPER(province) LIKE UPPER('".$text."%') AND country_id=".$parent." 
+			$res=$common->queryResult("SELECT province_id,province FROM area_province WHERE UPPER(province) LIKE UPPER('".$text."%') AND country_id=".$parent."
 					AND province_id !=0 ORDER BY province ASC LIMIT 10");
 			$arr=array();
 			$arr[]=array('id'=>0,'text'=>'Lain-lain');
@@ -1267,7 +1267,7 @@ class Daftar extends CI_Controller {
 		$text=$this->input->get('text');
 		$parent=$this->input->get('district');
 		if(trim($parent) != ''){
-			$res=$common->queryResult("SELECT district_id,district FROM area_district WHERE UPPER(district) LIKE UPPER('".$text."%') AND province_id=".$parent." 
+			$res=$common->queryResult("SELECT district_id,district FROM area_district WHERE UPPER(district) LIKE UPPER('".$text."%') AND province_id=".$parent."
 					AND district_id !=0 ORDER BY district ASC LIMIT 10");
 			$arr=array();
 			$arr[]=array('id'=>0,'text'=>'Lain-lain');
@@ -1306,7 +1306,7 @@ class Daftar extends CI_Controller {
 		$text=$this->input->get('text');
 		$parent=$this->input->get('kelurahan');
 		if(trim($parent) != ''){
-			$res=$common->queryResult("SELECT kelurahan_id,kelurahan FROM area_kelurahan WHERE UPPER(kelurahan) LIKE UPPER('".$text."%') AND districts_id=".$parent." 
+			$res=$common->queryResult("SELECT kelurahan_id,kelurahan FROM area_kelurahan WHERE UPPER(kelurahan) LIKE UPPER('".$text."%') AND districts_id=".$parent."
 					AND kelurahan_id !=0 ORDER BY kelurahan ASC LIMIT 10");
 			$arr=array();
 			$arr[]=array('id'=>0,'text'=>'Lain-lain');
@@ -1324,7 +1324,7 @@ class Daftar extends CI_Controller {
 		$common=$this->common;
 		$text=$this->input->get('text');
 		$arr=array();
-		$res=$common->queryResult("SELECT customer_id,customer_name,customer_code FROM rs_customer WHERE UPPER(customer_name) LIKE UPPER('%".$text."%') 
+		$res=$common->queryResult("SELECT customer_id,customer_name,customer_code FROM rs_customer WHERE UPPER(customer_name) LIKE UPPER('%".$text."%')
 		 	ORDER BY customer_name ASC LIMIT 10");
 		for($i=0; $i<count($res) ; $i++){
 			$country=$res[$i];
@@ -1350,7 +1350,7 @@ class Daftar extends CI_Controller {
 		}
 		$this->jsonresult->setData($arr)->end();
 	}
-	
+
 	public function getDokter(){
 		$common = $this->common;
 		$text=$this->input->get('text');
@@ -1371,13 +1371,13 @@ class Daftar extends CI_Controller {
 		$this->jsonresult->setData($arr)->end();
 	}
 
-	public function cekAntrian(){			
+	public function cekAntrian(){
 		$common=$this->common;
 		date_default_timezone_set("Asia/Jakarta");
 		$tglReg=new DateTime($this->input->get('tglReg'));
 		$now=new DateTime("now");
 		// cek tanggal berobat dengan tgl hari ini
-		
+
 		//if( (strtotime($tglReg->format('Y-m-d'))>strtotime($now->format('Y-m-d'))) || ($tglReg->format('Y-m-d') != $now->format('Y-m-d')) ){
 			$em = $this->doctrine->em;
 			$codeHari='';
@@ -1404,16 +1404,16 @@ class Daftar extends CI_Controller {
 				$codeHari='DAY_7';
 				$namaHari='Minggu';
 			}
-			$jadwalQUery=$common->queryResult("SELECT max_pelayanan,jam,durasi_periksa FROM rs_jadwal_poli WHERE 
-				unit_id=".$this->input->get('poliklinik')." AND 
-				hari='".$codeHari."' AND 
+			$jadwalQUery=$common->queryResult("SELECT max_pelayanan,jam,durasi_periksa FROM rs_jadwal_poli WHERE
+				unit_id=".$this->input->get('poliklinik')." AND
+				hari='".$codeHari."' AND
 				dokter_id=".$this->input->get('dokter')."
 				ORDER BY jam ASC");
 			$jadwal=$jadwalQUery;
 			$ObjectAntrian=$common->queryRow("SELECT no_antrian FROM rs_antrian_poliklinik
-				WHERE 
-				tgl_masuk='".$tglReg->format('Y-m-d')."' AND 
-				unit_id=".$this->input->get('poliklinik')." AND 
+				WHERE
+				tgl_masuk='".$tglReg->format('Y-m-d')."' AND
+				unit_id=".$this->input->get('poliklinik')." AND
 				dokter_id=".$this->input->get('dokter'));
 			if($jadwal){
 				$jumlah=0;
@@ -1437,7 +1437,7 @@ class Daftar extends CI_Controller {
 						$last1=$ObjectAntrian->no_antrian;
 					}
 					$dJam=new DateTime($jadwal[0]->jam);
-					if(strtotime($tglReg->format('Y-m-d'))>strtotime($now->format('Y-m-d')) || 
+					if(strtotime($tglReg->format('Y-m-d'))>strtotime($now->format('Y-m-d')) ||
 						(strtotime($tglReg->format('Y-m-d'))==strtotime($now->format('Y-m-d')) && strtotime($now->format('H:i:s'))<strtotime($dJam->format('H:i:s')))){
 						for($i=0; $i<count($jadwal) ; $i++){
 							$sisa=$jadwal[$i]->max_pelayanan-$last1;
@@ -1449,12 +1449,12 @@ class Daftar extends CI_Controller {
 							}else{
 								$last-=$jadwal[$i]->max_pelayanan;
 							}
-							
-						}	
+
+						}
 					}else{
 						$sisa=$jadwal[0]->max_pelayanan-$last1;
 						if(strtotime($dJam->format('H:i:s'))<strtotime($now->format('H:i:s'))){
-							
+
 							$jam=date_create($now->format('H:i:s'));
 							date_add($jam, date_interval_create_from_date_string(($last*$jadwal[0]->durasi_periksa).' minutes'));
 						}
@@ -1561,11 +1561,15 @@ class Daftar extends CI_Controller {
 					  "X-signature: ".$encodedSignature."\r\n";
 		return $headers;
 	}
-	
+
 	private function getSignatureVedika(){
-		$tmp_secretKey="3cDAEE1ED1";
-		$tmp_costumerID= "15081"; 
-		
+
+		$tmp_secretKey  = "8eXF12CA03";
+		$tmp_costumerID = "25246";
+		// RSSM
+		// $tmp_secretKey  ="3cDAEE1ED1";
+		// $tmp_costumerID = "15081";
+
 		//$tmp_secretKey  = "1kSB7D0168";
 		//$tmp_costumerID = "10542";
 		date_default_timezone_set('UTC');
@@ -1573,10 +1577,25 @@ class Daftar extends CI_Controller {
 		$signature = hash_hmac('sha256', $tmp_costumerID."&".$tStamp, $tmp_secretKey, true);
 		$encodedSignature = base64_encode($signature);
 		// return array("X-Cons-ID: ".$tmp_costumerID,"X-Timestamp: ".$tStamp,"X-Signature: ".$encodedSignature);
+		//
 		return array("X-Cons-ID: ".$tmp_costumerID,"X-Timestamp: ".$tStamp,"X-Signature: ".$encodedSignature);
-		
+
 	}
-	
+
+	public function get_sep(){
+		$sep    	= $this->input->post('sep'); //no kartu itu no rujukan
+
+		$headers		= $this->getSignatureVedika();
+		 $opts = array(
+		  'http'=>array(
+		  'method'=>'GET',
+		  'header'=>$headers
+		  )
+		);
+		$context = stream_context_create($opts);
+		echo file_get_contents('https://new-api.bpjs-kesehatan.go.id:8080/new-vclaim-rest/SEP/'.$sep,false,$context);
+	}
+
 	public function cek_no_kartu(){
 		$no_kartu    	= $this->input->post('no_kartu'); //no kartu itu no rujukan
 		$nilai_faskes   = $this->input->post('nilai_faskes');
@@ -1592,33 +1611,33 @@ class Daftar extends CI_Controller {
 			//URL GET RUJUKAN FASKES 1 SINGLE RECORD
 			//$res= json_decode(file_get_contents('https://dvlp.bpjs-kesehatan.go.id/vclaim-rest/Rujukan/Peserta/'.$no_kartu,false,$context));
 			$res= json_decode(file_get_contents('https://new-api.bpjs-kesehatan.go.id:8080/new-vclaim-rest/Rujukan/'.$no_kartu,false,$context));
-		
+
 		}else{
 			//URL GET RUJUKAN FASKES 2 SINGLE RECORD
 			//$res= json_decode(file_get_contents('https://dvlp.bpjs-kesehatan.go.id/vclaim-rest/Rujukan/RS/Peserta/'.$no_kartu,false,$context));
 			$res= json_decode(file_get_contents('https://new-api.bpjs-kesehatan.go.id:8080/new-vclaim-rest/Rujukan/RS/'.$no_kartu,false,$context));
 		} */
-		
+
 		//FASKES 2
-		$res_rs= json_decode(file_get_contents('https://new-api.bpjs-kesehatan.go.id:8080/new-vclaim-rest/Rujukan/RS/'.$no_kartu,false,$context));
 		$res ='';
+		$res= json_decode(file_get_contents('https://new-api.bpjs-kesehatan.go.id:8080/new-vclaim-rest/Rujukan/RS/'.$no_kartu,false,$context));
 		$nilai_faskes =2;
-		if($res_rs->metaData->code == '200'){
+		if($res->metaData->code == '200'){
 			$res = $res_rs;
 		}else{
 			//FASKES 1
 			$res= json_decode(file_get_contents('https://new-api.bpjs-kesehatan.go.id:8080/new-vclaim-rest/Rujukan/'.$no_kartu,false,$context));
 			$nilai_faskes =1;
 		}
-		
-		
+
+
 		$data = array(
 		  'resp'      => $res,
 		);
-		
+
 		echo json_encode(array('nilai_faskes'=>$nilai_faskes,'response_bpjs'=>$data));
 		// echo json_encode($data);
-	
+
 	}
 
 
@@ -1642,12 +1661,12 @@ class Daftar extends CI_Controller {
 		$text=$this->input->get('text');
 		$arr=array();
 		$res=$common->queryResult("
-									SELECT unit_id,unit_name 
-									FROM rs_unit 
-									WHERE UPPER(unit_name) LIKE UPPER('%".$text."%') 
+									SELECT unit_id,unit_name
+									FROM rs_unit
+									WHERE UPPER(unit_name) LIKE UPPER('%".$text."%')
 										AND unit_type='UNITTYPE_RWJ'
 										AND active_flag = '1'
-		 							ORDER BY unit_name ASC 
+		 							ORDER BY unit_name ASC
 		 						");
 		for($i=0; $i<count($res) ; $i++){
 			$country=$res[$i];
@@ -1665,7 +1684,7 @@ class Daftar extends CI_Controller {
 		$kd_poli	= $this->input->get('poli');
 		//$url= "https://dvlp.bpjs-kesehatan.go.id/vclaim-rest/referensi/dokter/pelayanan/2/tglPelayanan/".date("Y-m-d")."/Spesialis/".$kd_poli." ";
 		$url= "https://new-api.bpjs-kesehatan.go.id:8080/new-vclaim-rest/referensi/dokter/pelayanan/2/tglPelayanan/".date("Y-m-d")."/Spesialis/".$kd_poli." ";
-		
+
 		$headers=$this->getSignatureVedika();
 		$opts = array(
 		  'http'=>array(
@@ -1675,9 +1694,9 @@ class Daftar extends CI_Controller {
 		);
 		$context = stream_context_create($opts);
 		$res = json_decode(file_get_contents($url,false,$context));
-		
+
 		$res2 = $res->response->list;
-		$arr=array(); 
+		$arr=array();
 		for($i=0; $i<count($res2) ; $i++){
 			$country=$res2[$i];
 			$o=array();
@@ -1686,7 +1705,7 @@ class Daftar extends CI_Controller {
 			$arr[]=$o;
 		}
 		//print_r($arr);
-		$this->jsonresult->setData($arr)->end();   
+		$this->jsonresult->setData($arr)->end();
 	}
 
 	public function cek_pasien_daftar(){
@@ -1696,35 +1715,35 @@ class Daftar extends CI_Controller {
 		if(count($res)>=1){
 			echo json_encode(array('response'=>'false'));
 		}else{
-			echo json_encode(array('response'=>'true'));	
+			echo json_encode(array('response'=>'true'));
 		}
-			
+
 	}
 	public function get_gelar(){
 		$common=$this->common;
 		$res=$common->queryResult("SELECT * from rs_gelar ");
 		$this->jsonresult->setData($res)->end();
 	}
-	
+
 	public function getKabupatenPG ($kd_kabupaten){
 		$db=$this->load->database('other',true);
 		$response = array();
 		//ambil data kelurahan dari postgre
 		$get_kabupaten_pg =$db->query("
-			select * from kabupaten where kd_kabupaten='".$kd_kabupaten."' 
+			select * from kabupaten where kd_kabupaten='".$kd_kabupaten."'
 		")->row();
-		
+
 		if (count ($get_kabupaten_pg) > 0){
 			$param_kd_kabupaten = $get_kabupaten_pg->kd_kabupaten;
 			$param_kabupaten 	= $get_kabupaten_pg->kabupaten;
 			$param_kd_propinsi 	= $get_kabupaten_pg->kd_propinsi;
-			
+
 			// cek propinsi
 			$cek_propinsi = $this->db->query ("
-				select * from area_province 
-				where province_id = '".$param_kd_propinsi."' 
+				select * from area_province
+				where province_id = '".$param_kd_propinsi."'
 			")->row();
-			
+
 			if(count ($cek_propinsi) > 0){
 				$insert_kabupaten=$this->db->query("
 					INSERT INTO area_district (district_id,district,province_id)
@@ -1734,7 +1753,7 @@ class Daftar extends CI_Controller {
 						 '".$param_kd_propinsi."'
 						)
 				");
-				
+
 				if($insert_kabupaten){
 					$response['status'] = 'true';
 					$response['kd_kabupaten'] = $param_kd_kabupaten;
@@ -1746,27 +1765,27 @@ class Daftar extends CI_Controller {
 				return $response;
 			}
 		}
-		
+
 	}
 	public function getKecamatanPG ($kd_kecamatan){
 		$db=$this->load->database('other',true);
 		$response = array();
 		//ambil data kelurahan dari postgre
 		$get_kecamatan_pg =$db->query("
-			select * from kecamatan where kd_kecamatan='".$kd_kecamatan."' 
+			select * from kecamatan where kd_kecamatan='".$kd_kecamatan."'
 		")->row();
-		
+
 		if (count ($get_kecamatan_pg) > 0){
 			$param_kd_kecamatan = $get_kecamatan_pg->kd_kecamatan;
 			$param_kd_kabupaten = $get_kecamatan_pg->kd_kabupaten;
 			$param_kecamatan 	= $get_kecamatan_pg->kecamatan;
-			
+
 			// cek kecamatan
 			$cek_kabupaten = $this->db->query ("
-				select * from area_district 
-				where district_id = '".$param_kd_kabupaten."' 
+				select * from area_district
+				where district_id = '".$param_kd_kabupaten."'
 			")->row();
-			
+
 			if(count ($cek_kabupaten) > 0){
 				$insert_kecamatan=$this->db->query("
 					INSERT INTO area_districts (districts_id,districts,district_id)
@@ -1776,7 +1795,7 @@ class Daftar extends CI_Controller {
 						 '".$param_kd_kabupaten."'
 						)
 				");
-				
+
 				if($insert_kecamatan){
 					$response['status'] = 'true';
 					$response['kd_kecamatan'] = $param_kd_kecamatan;
@@ -1788,40 +1807,40 @@ class Daftar extends CI_Controller {
 				return $response;
 			}
 		}
-		
+
 	}
-	
+
 	// setup kelurahan
 	public function getKelurahanPG ($kd_kelurahan){
-		
+
 		$db=$this->load->database('other',true);
 		$response = array();
 		$get_kelurahan = $this->db->query ("
-			select * from area_kelurahan 
-			where kelurahan_id = '".$kd_kelurahan."' 
+			select * from area_kelurahan
+			where kelurahan_id = '".$kd_kelurahan."'
 		")->row();
-		
-		
+
+
 		if(count ($get_kelurahan) == 0){
 			//jika data kelurahan tidak ditemukan
 			//ambil data kelurahan dari postgre
 			$get_kelurahan_pg =$db->query("
-				select * from kelurahan where kd_kelurahan='".$kd_kelurahan."' 
+				select * from kelurahan where kd_kelurahan='".$kd_kelurahan."'
 			")->row();
-			
-			
+
+
 			if (count ($get_kelurahan_pg) > 0){
 				$param_kd_kelurahan = $get_kelurahan_pg->kd_kelurahan;
 				$param_kd_kecamatan = $get_kelurahan_pg->kd_kecamatan;
 				$param_kelurahan 	= $get_kelurahan_pg->kelurahan;
-				
+
 				// cek kecamatan
 				$cek_kecamatan = $this->db->query ("
-					select * from area_districts 
-					where districts_id = '".$param_kd_kecamatan."' 
+					select * from area_districts
+					where districts_id = '".$param_kd_kecamatan."'
 				")->row();
-				
-				
+
+
 				if(count ($cek_kecamatan) > 0){
 					$insert_kelurahan=$this->db->query("
 						INSERT INTO area_kelurahan (kelurahan_id,kelurahan,districts_id)
@@ -1831,7 +1850,7 @@ class Daftar extends CI_Controller {
 							 '".$param_kd_kecamatan."'
 							)
 					");
-					
+
 					if($insert_kelurahan){
 						$response['status'] = 'true';
 						$response['kd_kelurahan'] = $param_kd_kelurahan;
@@ -1843,7 +1862,7 @@ class Daftar extends CI_Controller {
 					return $response;
 				}
 			}
-			
+
 		}else{
 			//jika data kelurahan ditemukan
 			$response['status'] = 'true';
@@ -1851,22 +1870,22 @@ class Daftar extends CI_Controller {
 			return $response;
 		}
 	}
-	
+
 	public function getPatientNew(){
-		$db=$this->load->database('other',true);
+		$db = $this->load->database('other', true);
 		$em = $this->doctrine->em;
-		$common=$this->common;
+		// echo "string";die;
+		$common    = $this->common;
 		$no_medrec = $this->input->get('no_medrec');
-		$tgl_lahir=new DateTime( $this->input->get('tgl_lahir'));
-		
-		
-		$res=$em->createQuery("SELECT u FROM Entity\content\Patient u 
+		$tgl_lahir = new DateTime( $this->input->get('tgl_lahir'));
+
+		$res=$em->createQuery("SELECT u FROM Entity\content\Patient u
 			WHERE u.patientCode='".$no_medrec."'  and u.birthDate = '".$tgl_lahir->format('Y-m-d')."' " );
-		
+
 		if(!$res->getResult()){
 			/* CARI DATA DI POSTGRE */
-			
-			$cari_pasien_pg =$db->query("
+
+			$cari_pasien_pg = $db->query("
 				select a.*,
 					propinsi.kd_propinsi,
 					kabupaten.kd_kabupaten,
@@ -1876,42 +1895,41 @@ class Daftar extends CI_Controller {
 						inner join kelurahan on kelurahan.kd_kelurahan=a.kd_kelurahan
 						inner join kecamatan on kecamatan.kd_kecamatan=kelurahan.kd_kecamatan
 						inner join kabupaten on kabupaten.kd_kabupaten=kecamatan.kd_kabupaten
-						inner join propinsi on propinsi.kd_propinsi=kabupaten.kd_propinsi	
-					where a.kd_pasien='".$no_medrec."' 
+						inner join propinsi on propinsi.kd_propinsi=kabupaten.kd_propinsi
+					where a.kd_pasien='".$no_medrec."'
 					and a.tgl_lahir ='".$tgl_lahir->format('Y-m-d')."'
 			")->row();
-			
+
 			if(count($cari_pasien_pg) > 0){
-				$params_pasien=array();
-				$param_kd_pasien 	=  $cari_pasien_pg->kd_pasien;
-				$param_nama_pasien 	=  $cari_pasien_pg->nama;
-				$param_tempat_lahir =  $cari_pasien_pg->tempat_lahir;
-				$param_tgl_lahir 	=  $cari_pasien_pg->tgl_lahir;
-				$param_jk 			=  $cari_pasien_pg->jenis_kelamin;
-				$param_agama 		=  $cari_pasien_pg->kd_agama;
-				$param_gol_darah 	=  $cari_pasien_pg->gol_darah;
-				$param_pendidikan 	=  $cari_pasien_pg->kd_pendidikan;
-				$param_alamat 		=  $cari_pasien_pg->alamat;
-				$param_telepon		=  $cari_pasien_pg->telepon;
-				$param_kelurahan	=  $cari_pasien_pg->kd_kelurahan;
-				$param_kecamatan	=  $cari_pasien_pg->kd_kecamatan;
-				$param_kabupaten	=  $cari_pasien_pg->kd_kabupaten;
-				$param_propinsi		=  $cari_pasien_pg->kd_propinsi;
-				$param_kd_pos		=  $cari_pasien_pg->kd_pos;
-				$param_ktp 			=  $cari_pasien_pg->tanda_pengenal;
+				$params_pasien       = array();
+				$param_kd_pasien 	   = $cari_pasien_pg->kd_pasien;
+				$param_nama_pasien 	 = $cari_pasien_pg->nama;
+				$param_tempat_lahir  = $cari_pasien_pg->tempat_lahir;
+				$param_tgl_lahir 	   = $cari_pasien_pg->tgl_lahir;
+				$param_jk 			     = $cari_pasien_pg->jenis_kelamin;
+				$param_agama 		     = $cari_pasien_pg->kd_agama;
+				$param_gol_darah 	   = $cari_pasien_pg->gol_darah;
+				$param_pendidikan 	 = $cari_pasien_pg->kd_pendidikan;
+				$param_alamat 		   = $cari_pasien_pg->alamat;
+				$param_telepon		   = $cari_pasien_pg->telepon;
+				$param_kelurahan	   = $cari_pasien_pg->kd_kelurahan;
+				$param_kecamatan	   = $cari_pasien_pg->kd_kecamatan;
+				$param_kabupaten	   = $cari_pasien_pg->kd_kabupaten;
+				$param_propinsi		   = $cari_pasien_pg->kd_propinsi;
+				$param_kd_pos		     = $cari_pasien_pg->kd_pos;
+				$param_ktp 			     = $cari_pasien_pg->tanda_pengenal;
 
 				//insert kelurahan
-				$tmp_kelurahan 			= $this->getKelurahanPG($param_kelurahan);
-				
-				$get_param_status 		= $tmp_kelurahan['status'];
-				$daerah					= 'false';
-				
+				$tmp_kelurahan 			 = $this->getKelurahanPG($param_kelurahan);
+				$get_param_status 	 = $tmp_kelurahan['status'];
+				$daerah					     = 'false';
+
 				//kecamatan tidak ada
 				if ($get_param_status == 'false'){
 					//insert kecamatan
-					$tmp_kecamatan 		=	$this->getKecamatanPG($tmp_kelurahan['kd_kecamatan']);
-					$status_kecamatan 	= 	$tmp_kecamatan['status'];
-					
+					$tmp_kecamatan 		   = $this->getKecamatanPG($tmp_kelurahan['kd_kecamatan']);
+					$status_kecamatan 	 = $tmp_kecamatan['status'];
+
 					if($status_kecamatan == 'true'){
 						$insert_kelurahan 		=  $this->getKelurahanPG($param_kelurahan); //insert kelurahan ketika kecamatan sudah ditambahkan
 						$get_param_kelurahan 	=  $insert_kelurahan['kd_kelurahan'];
@@ -1919,21 +1937,20 @@ class Daftar extends CI_Controller {
 					}else{
 						//kabupaten tidak ada
 						//insert kabupaten
-						$insert_kabupaten = $this->getKabupatenPG($tmp_kecamatan['kd_kabupaten']);
+						$insert_kabupaten      = $this->getKabupatenPG($tmp_kecamatan['kd_kabupaten']);
 						//insert kecamatan
-						$insert_kecamatan = $this->getKecamatanPG($tmp_kelurahan['kd_kecamatan']);
+						$insert_kecamatan      = $this->getKecamatanPG($tmp_kelurahan['kd_kecamatan']);
 						//insert kelurahan
-						$insert_kelurahan = $this->getKelurahanPG($param_kelurahan);
-						
-						$get_param_kelurahan 	=  $insert_kelurahan['kd_kelurahan'];
+						$insert_kelurahan      = $this->getKelurahanPG($param_kelurahan);
+						$get_param_kelurahan 	 = $insert_kelurahan['kd_kelurahan'];
 						$daerah = 'true';
-					} 
-					
+					}
+
 				}else{
 					$get_param_kelurahan =  $tmp_kelurahan['kd_kelurahan'];
 					$daerah = 'true';
 				}
-				
+
 				if($daerah == 'true'){
 					$patient=new Entity\content\Patient();
 					$patient->setPatientCode($param_kd_pasien)
@@ -1952,13 +1969,13 @@ class Daftar extends CI_Controller {
 							->setProvince($common->find ( 'Province', $param_propinsi ))
 							->setPostalCode($param_kd_pos)
 							->setKtp($param_ktp)
-							->save(); 
+							->save();
 				}
 			}else{
 				$this->jsonresult->warning()->setMessage("Data tidak ditemukan!")->end();
 			}
 		}
-		
+
 		$res = $res->getSingleResult();
 		$o=array();
 		$o['rm']=$res->getId();
@@ -2058,24 +2075,51 @@ class Daftar extends CI_Controller {
 				$o['kelurahanTemp']=$res->getKelurahanTemp()->getValue();
 			}else{
 				$o['kelurahanTemp']='';
-			}			
+			}
 		}
 		$o['postalCode']=$res->getPostalCode();
-		$this->jsonresult->setData($o)->end();	
+		$this->jsonresult->setData($o)->end();
 	}
 
 	public function getJenisKunjungan(){
 		$common = $this->common;
 		$text=$this->input->get('text');
 		$arr=array();
-	
+
 		$o[0]['id']		= 1;
 		$o[0]['text']	= 'Episode Baru';
 		$o[1]['id']		= 2;
 		$o[1]['text']	= 'Episode Lanjutan';
-		
-			
+
+
 		$this->jsonresult->setData($o)->end();
 	}
-	
+
+	public function get_custom(){
+		$criteria = $this->input->post('criteria');
+		$order    = $this->input->post('order');
+		$asc      = $this->input->post('asc');
+		$limit    = $this->input->post('limit');
+		$db_simrs = $this->load->database('other',true);
+		$db_simrs->select($this->input->post('select'));
+		$db_simrs->from($this->input->post('table'));
+
+		if ($criteria != '') {
+			$db_simrs->where($criteria);
+		}
+
+		if ($order != '') {
+			$direction = "ASC";
+			if ($asc == 'false' || $asc === false) {
+				$direction = "DESC";
+			}
+			$db_simrs->order_by($order, $direction);
+		}
+
+		if ($limit != '') {
+			$db_simrs->limit($limit);
+		}
+		$query = $db_simrs->get();
+		echo json_encode($query->result());
+	}
 }
